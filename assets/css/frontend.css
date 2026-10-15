@@ -1,0 +1,831 @@
+/**
+ * Kashiwazaki SEO Recommended Ranking：公開ページのランキング
+ *
+ * - デザインの型は .kashiwazaki-seo-recommended-ranking--design-{standard|crown|minimal|table|podium} で切り替える。
+ * - 幅は「画面の幅」ではなく「ランキングを置いた場所の幅」で切り替える（コンテナクエリ）。狭い形を基本にし、
+ *   置き場所が 560px 以上なら横に並べる。コンテナクエリの無い古いブラウザでは、狭い形（縦に並ぶ形）のまま表示される。
+ *   幅を中身から決める置き場所（inline-block・表のセル・float・幅を指定しないフレックスの項目など）でも、
+ *   外側の包み（-frame）が置き場所いっぱいの幅を決める（最小は 10em）。
+ *   管理画面のプレビューの「スマホ」（幅の狭い枠）にも同じ規則が当たる。
+ * - 罫線・面の色は文字の色（currentColor）から作り、暗い色のテーマでも読めるようにする。
+ * - テーマの「本文の箇条書き」の装飾（番号・記号・余白）がランキングに入り込まないよう、要所だけ !important で打ち消す。
+ */
+.kashiwazaki-seo-recommended-ranking {
+    --kashiwazaki-seo-recommended-ranking-line: rgba(128, 128, 128, 0.28);
+    --kashiwazaki-seo-recommended-ranking-soft: rgba(128, 128, 128, 0.06);
+    --kashiwazaki-seo-recommended-ranking-muted: inherit;
+    --kashiwazaki-seo-recommended-ranking-accent-soft: rgba(128, 128, 128, 0.1);
+    --kashiwazaki-seo-recommended-ranking-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 4px 14px rgba(0, 0, 0, 0.05);
+    /* 置き場所の幅で切り替える（コンテナクエリ）。コンテナは中身から幅が決まらないので、幅は外側の包みが決める */
+    container-type: inline-size;
+    container-name: kashiwazaki-seo-recommended-ranking;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    text-align: left;
+}
+
+/* 外側の包み: 余白と回り込みの解除はここで持つ。外枠（コンテナ）は中身から幅が決まらないので、
+   幅を中身から決める置き場所（inline-block・表のセル・float・フレックスの項目など）では、
+   この包みの見えない目安（::before）で幅を決める: 最小は 10em、最大は置き場所いっぱい */
+.kashiwazaki-seo-recommended-ranking-frame {
+    display: block;
+    clear: both;
+    margin: 2em 0;
+    padding: 0;
+}
+
+/* 改行できるのは空白の 1 か所だけなので、最小の幅は min-width の 10em、最大の幅は word-spacing で約 200em になる。
+   高さを取らず、見せず、読み上げない */
+.kashiwazaki-seo-recommended-ranking-frame::before {
+    content: "x x";
+    display: block;
+    min-width: 10em;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    visibility: hidden;
+    white-space: normal;
+    word-spacing: 200em;
+}
+
+@supports (color: color-mix(in srgb, red 50%, transparent)) {
+    .kashiwazaki-seo-recommended-ranking {
+        --kashiwazaki-seo-recommended-ranking-line: color-mix(in srgb, currentColor 16%, transparent);
+        --kashiwazaki-seo-recommended-ranking-soft: color-mix(in srgb, currentColor 4%, transparent);
+        --kashiwazaki-seo-recommended-ranking-muted: color-mix(in srgb, currentColor 78%, transparent);
+        --kashiwazaki-seo-recommended-ranking-accent-soft: color-mix(in srgb, var(--kashiwazaki-seo-recommended-ranking-accent, #1f5fbf) 12%, transparent);
+    }
+}
+
+.kashiwazaki-seo-recommended-ranking *,
+.kashiwazaki-seo-recommended-ranking *::before,
+.kashiwazaki-seo-recommended-ranking *::after {
+    box-sizing: border-box;
+}
+
+/* 見出しは枠の直前に置く（目次のプラグインが枠の中に目次を差し込まないように） */
+.kashiwazaki-seo-recommended-ranking__heading {
+    clear: both;
+}
+
+p.kashiwazaki-seo-recommended-ranking__heading {
+    margin: 2em 0 0.6em;
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.kashiwazaki-seo-recommended-ranking-frame.kashiwazaki-seo-recommended-ranking-frame--has-heading {
+    margin-top: 0.6em;
+}
+
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__lead {
+    margin: 0 0 1.1em;
+    overflow-wrap: anywhere;
+}
+
+/* ---- 共通の部品 ---- */
+
+/* 一覧（テーマの番号・記号・字下げを消す） */
+.kashiwazaki-seo-recommended-ranking ol.kashiwazaki-seo-recommended-ranking__list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    counter-reset: none;
+}
+
+.kashiwazaki-seo-recommended-ranking li.kashiwazaki-seo-recommended-ranking__item {
+    /* 順位ごとの色（1位〜3位は下の「金・銀・銅」で上書きする） */
+    --kashiwazaki-seo-recommended-ranking-rank-bg: var(--kashiwazaki-seo-recommended-ranking-accent, #1f5fbf);
+    --kashiwazaki-seo-recommended-ranking-rank-fg: var(--kashiwazaki-seo-recommended-ranking-accent-text, #fff);
+    --kashiwazaki-seo-recommended-ranking-medal: var(--kashiwazaki-seo-recommended-ranking-accent, #1f5fbf);
+    /* ページの地の上の順位の数字は文字の色のまま（読める色をテーマが決める）。金銀銅のときだけ下で上書きする */
+    --kashiwazaki-seo-recommended-ranking-medal-text: currentColor;
+    --kashiwazaki-seo-recommended-ranking-band: var(--kashiwazaki-seo-recommended-ranking-soft);
+    --kashiwazaki-seo-recommended-ranking-band-ink: inherit;
+    list-style: none !important;
+    margin: 0 0 0.9em !important;
+    padding: 0 !important;
+    text-indent: 0;
+}
+
+.kashiwazaki-seo-recommended-ranking li.kashiwazaki-seo-recommended-ranking__item:last-child {
+    margin-bottom: 0 !important;
+}
+
+.kashiwazaki-seo-recommended-ranking li.kashiwazaki-seo-recommended-ranking__item::before,
+.kashiwazaki-seo-recommended-ranking li.kashiwazaki-seo-recommended-ranking__item::after,
+.kashiwazaki-seo-recommended-ranking li.kashiwazaki-seo-recommended-ranking__item::marker {
+    content: none !important;
+    display: none !important;
+}
+
+/* 1位〜3位で、メインの色を使うとき（金・銀・銅にしないとき）の帯 */
+.kashiwazaki-seo-recommended-ranking li.kashiwazaki-seo-recommended-ranking__item--top {
+    --kashiwazaki-seo-recommended-ranking-band: var(--kashiwazaki-seo-recommended-ranking-accent-soft);
+}
+
+/* 1位〜3位（金・銀・銅） */
+.kashiwazaki-seo-recommended-ranking--medal li.kashiwazaki-seo-recommended-ranking__item--rank-1 {
+    --kashiwazaki-seo-recommended-ranking-rank-bg: linear-gradient(135deg, #f9e08a 0%, #dcaa24 100%);
+    --kashiwazaki-seo-recommended-ranking-rank-fg: #3a2900;
+    --kashiwazaki-seo-recommended-ranking-medal: #d4a017;
+    --kashiwazaki-seo-recommended-ranking-medal-text: #b8860b;
+    --kashiwazaki-seo-recommended-ranking-band: linear-gradient(90deg, #fdf0c2 0%, #f6dc8c 100%);
+    --kashiwazaki-seo-recommended-ranking-band-ink: #3a2900;
+}
+
+.kashiwazaki-seo-recommended-ranking--medal li.kashiwazaki-seo-recommended-ranking__item--rank-2 {
+    --kashiwazaki-seo-recommended-ranking-rank-bg: linear-gradient(135deg, #f1f3f6 0%, #b4bcc7 100%);
+    --kashiwazaki-seo-recommended-ranking-rank-fg: #1f2933;
+    --kashiwazaki-seo-recommended-ranking-medal: #9aa5b1;
+    --kashiwazaki-seo-recommended-ranking-medal-text: #7b8794;
+    --kashiwazaki-seo-recommended-ranking-band: linear-gradient(90deg, #f4f6f9 0%, #dde2e9 100%);
+    --kashiwazaki-seo-recommended-ranking-band-ink: #1f2933;
+}
+
+.kashiwazaki-seo-recommended-ranking--medal li.kashiwazaki-seo-recommended-ranking__item--rank-3 {
+    --kashiwazaki-seo-recommended-ranking-rank-bg: linear-gradient(135deg, #f6cfa9 0%, #c7834c 100%);
+    --kashiwazaki-seo-recommended-ranking-rank-fg: #2a1403;
+    --kashiwazaki-seo-recommended-ranking-medal: #c07a40;
+    --kashiwazaki-seo-recommended-ranking-medal-text: #a5622c;
+    --kashiwazaki-seo-recommended-ranking-band: linear-gradient(90deg, #fbe6d3 0%, #f1c9a3 100%);
+    --kashiwazaki-seo-recommended-ranking-band-ink: #2a1403;
+}
+
+/* 見出しの行（順位・名称） */
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__head {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    min-width: 0;
+}
+
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__rank {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__rank-inner {
+    display: inline-flex;
+    align-items: baseline;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__rank-number {
+    font-size: 1.15em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__rank-suffix {
+    margin-left: 0.06em;
+    font-size: 0.65em;
+    line-height: 1;
+}
+
+/* 王冠の印（王冠・上位3つを大きく、で表示する） */
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__crown {
+    display: none;
+    line-height: 0;
+    color: var(--kashiwazaki-seo-recommended-ranking-medal);
+}
+
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__crown svg {
+    display: block;
+    width: 1em;
+    height: 1em;
+    margin: 0;
+    fill: currentColor;
+}
+
+.kashiwazaki-seo-recommended-ranking p.kashiwazaki-seo-recommended-ranking__name {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 1.1em;
+    font-weight: 700;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* 名称のリンク（文字の色のまま、メインの色の下線で示す。テーマの「.entry-content a:link」などの下線の色・太さ・下の罫線に負けないように） */
+.kashiwazaki-seo-recommended-ranking a.kashiwazaki-seo-recommended-ranking__name-link {
+    border-bottom: 0 !important;
+    color: inherit !important;
+    text-decoration-line: underline !important;
+    text-decoration-color: var(--kashiwazaki-seo-recommended-ranking-accent, #1f5fbf) !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 0.22em;
+}
+
+.kashiwazaki-seo-recommended-ranking a.kashiwazaki-seo-recommended-ranking__name-link:hover {
+    text-decoration-thickness: 2px !important;
+}
+
+/* 本文（説明・ボタン） */
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__body {
+    min-width: 0;
+    margin-top: 0.6em;
+}
+
+.kashiwazaki-seo-recommended-ranking p.kashiwazaki-seo-recommended-ranking__desc {
+    margin: 0;
+    padding: 0;
+    color: var(--kashiwazaki-seo-recommended-ranking-muted);
+    font-size: 0.95em;
+    overflow-wrap: anywhere;
+}
+
+.kashiwazaki-seo-recommended-ranking p.kashiwazaki-seo-recommended-ranking__action {
+    margin: 0.8em 0 0;
+    padding: 0;
+}
+
+/* 説明の無い順位は、ボタンを本文の先頭に置く */
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__body > p.kashiwazaki-seo-recommended-ranking__action:first-child {
+    margin-top: 0;
+}
+
+/* ボタン（テーマのリンクの色・下線に負けないように） */
+.kashiwazaki-seo-recommended-ranking a.kashiwazaki-seo-recommended-ranking__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55em;
+    width: 100%;
+    min-height: 44px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.55em 1.4em;
+    border: 0;
+    border-radius: 999px;
+    background: var(--kashiwazaki-seo-recommended-ranking-accent, #1f5fbf) !important;
+    color: var(--kashiwazaki-seo-recommended-ranking-accent-text, #fff) !important;
+    font-size: 0.95em;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    transition: filter 0.15s ease, transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+    overflow-wrap: anywhere;
+}
+
+.kashiwazaki-seo-recommended-ranking a.kashiwazaki-seo-recommended-ranking__button:hover {
+    filter: brightness(1.08);
+    color: var(--kashiwazaki-seo-recommended-ranking-accent-text, #fff) !important;
+}
+
+.kashiwazaki-seo-recommended-ranking a.kashiwazaki-seo-recommended-ranking__button:active {
+    transform: translateY(1px);
+}
+
+.kashiwazaki-seo-recommended-ranking .kashiwazaki-seo-recommended-ranking__button-arrow {
+    flex: 0 0 auto;
+    width: 0.45em;
+    height: 0.45em;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
+}
+
+@container kashiwazaki-seo-recommended-ranking (min-width: 560px) {
+    .kashiwazaki-seo-recommended-ranking a.kashiwazaki-seo-recommended-ranking__button {
+        display: inline-flex;
+        width: auto;
+    }
+}
+
+/* ==== スタンダード：順位の丸・名称・説明・ボタンを 1 枚ずつのカードに ==== */
+.kashiwazaki-seo-recommended-ranking--design-standard li.kashiwazaki-seo-recommended-ranking__item {
+    padding: 1em 1.1em !important;
+    border: 1px solid var(--kashiwazaki-seo-recommended-ranking-line);
+    border-radius: 12px;
+    background: var(--kashiwazaki-seo-recommended-ranking-soft);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-standard .kashiwazaki-seo-recommended-ranking__rank {
+    width: 2.6em;
+    height: 2.6em;
+    border-radius: 50%;
+    background: var(--kashiwazaki-seo-recommended-ranking-rank-bg);
+    color: var(--kashiwazaki-seo-recommended-ranking-rank-fg);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-standard.kashiwazaki-seo-recommended-ranking--medal li.kashiwazaki-seo-recommended-ranking__item--rank-1 {
+    border-color: rgba(212, 160, 23, 0.6);
+    background: rgba(212, 160, 23, 0.07);
+    box-shadow: 0 0 0 1px rgba(212, 160, 23, 0.25);
+}
+
+@container kashiwazaki-seo-recommended-ranking (min-width: 560px) {
+    .kashiwazaki-seo-recommended-ranking--design-standard li.kashiwazaki-seo-recommended-ranking__item {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        column-gap: 1.1em;
+        align-items: center;
+        padding: 1.1em 1.3em !important;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-standard .kashiwazaki-seo-recommended-ranking__head,
+    .kashiwazaki-seo-recommended-ranking--design-standard .kashiwazaki-seo-recommended-ranking__body {
+        display: contents;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-standard .kashiwazaki-seo-recommended-ranking__rank {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        align-self: center;
+        width: 3em;
+        height: 3em;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-standard p.kashiwazaki-seo-recommended-ranking__name {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-standard p.kashiwazaki-seo-recommended-ranking__desc {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        margin-top: 0.2em;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-standard p.kashiwazaki-seo-recommended-ranking__action {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+        align-self: center;
+        margin: 0 !important;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-standard a.kashiwazaki-seo-recommended-ranking__button {
+        max-width: 16em;
+    }
+}
+
+/* ==== 王冠：1位〜3位に王冠と金・銀・銅の帯 ==== */
+.kashiwazaki-seo-recommended-ranking--design-crown li.kashiwazaki-seo-recommended-ranking__item {
+    overflow: hidden;
+    border: 1px solid var(--kashiwazaki-seo-recommended-ranking-line);
+    border-radius: 12px;
+    box-shadow: var(--kashiwazaki-seo-recommended-ranking-shadow);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-crown .kashiwazaki-seo-recommended-ranking__head {
+    gap: 0.6em;
+    padding: 0.7em 1em;
+    border-bottom: 1px solid var(--kashiwazaki-seo-recommended-ranking-line);
+    background: var(--kashiwazaki-seo-recommended-ranking-band);
+    color: var(--kashiwazaki-seo-recommended-ranking-band-ink);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-crown li.kashiwazaki-seo-recommended-ranking__item:not(:has(.kashiwazaki-seo-recommended-ranking__body)) .kashiwazaki-seo-recommended-ranking__head {
+    border-bottom: 0;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-crown .kashiwazaki-seo-recommended-ranking__crown {
+    display: inline-flex;
+    font-size: 1.55em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-crown .kashiwazaki-seo-recommended-ranking__item--top .kashiwazaki-seo-recommended-ranking__rank-number {
+    font-size: 1.35em;
+}
+
+/* 4位以下は角丸の四角に順位 */
+.kashiwazaki-seo-recommended-ranking--design-crown li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) .kashiwazaki-seo-recommended-ranking__rank {
+    min-width: 2.4em;
+    height: 2.1em;
+    padding: 0 0.45em;
+    border-radius: 6px;
+    background: var(--kashiwazaki-seo-recommended-ranking-rank-bg);
+    color: var(--kashiwazaki-seo-recommended-ranking-rank-fg);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-crown p.kashiwazaki-seo-recommended-ranking__name {
+    font-size: 1.12em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-crown .kashiwazaki-seo-recommended-ranking__body {
+    margin: 0;
+    padding: 0.9em 1.1em 1.1em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-crown p.kashiwazaki-seo-recommended-ranking__action {
+    text-align: center;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-crown a.kashiwazaki-seo-recommended-ranking__button {
+    min-height: 48px;
+    border-radius: 8px;
+    font-size: 1em;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+}
+
+@container kashiwazaki-seo-recommended-ranking (min-width: 560px) {
+    .kashiwazaki-seo-recommended-ranking--design-crown .kashiwazaki-seo-recommended-ranking__head {
+        padding: 0.8em 1.3em;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-crown .kashiwazaki-seo-recommended-ranking__body {
+        padding: 1em 1.3em 1.25em;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-crown a.kashiwazaki-seo-recommended-ranking__button {
+        display: flex;
+        width: 100%;
+        max-width: 22em;
+        margin: 0 auto;
+    }
+}
+
+/* ==== シンプル：大きな順位の数字と罫線だけ ==== */
+.kashiwazaki-seo-recommended-ranking--design-minimal li.kashiwazaki-seo-recommended-ranking__item {
+    margin: 0 !important;
+    padding: 1.15em 0 !important;
+    border-top: 1px solid var(--kashiwazaki-seo-recommended-ranking-line);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-minimal li.kashiwazaki-seo-recommended-ranking__item:last-child {
+    border-bottom: 1px solid var(--kashiwazaki-seo-recommended-ranking-line);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-minimal .kashiwazaki-seo-recommended-ranking__head {
+    align-items: baseline;
+    gap: 0.8em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-minimal .kashiwazaki-seo-recommended-ranking__rank {
+    min-width: 2.6em;
+    justify-content: flex-start;
+    color: var(--kashiwazaki-seo-recommended-ranking-medal-text);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-minimal .kashiwazaki-seo-recommended-ranking__rank-number {
+    font-size: 1.9em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-minimal .kashiwazaki-seo-recommended-ranking__rank-suffix {
+    font-size: 0.8em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-minimal p.kashiwazaki-seo-recommended-ranking__name {
+    font-size: 1.12em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-minimal a.kashiwazaki-seo-recommended-ranking__button {
+    display: inline-flex;
+    width: auto;
+    min-height: 40px;
+    padding: 0.4em 1.2em;
+    border: 1.5px solid var(--kashiwazaki-seo-recommended-ranking-accent, #1f5fbf);
+    background: transparent !important;
+    /* 地の上の文字なので、メインの色ではなく文字の色にする（明るいメインの色でも読める） */
+    color: inherit !important;
+    font-size: 0.9em;
+    box-shadow: none;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-minimal a.kashiwazaki-seo-recommended-ranking__button:hover {
+    filter: none;
+    background: var(--kashiwazaki-seo-recommended-ranking-accent, #1f5fbf) !important;
+    color: var(--kashiwazaki-seo-recommended-ranking-accent-text, #fff) !important;
+}
+
+@container kashiwazaki-seo-recommended-ranking (min-width: 560px) {
+    .kashiwazaki-seo-recommended-ranking--design-minimal li.kashiwazaki-seo-recommended-ranking__item {
+        padding: 1.4em 0 !important;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-minimal .kashiwazaki-seo-recommended-ranking__rank {
+        min-width: 3.4em;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-minimal .kashiwazaki-seo-recommended-ranking__rank-number {
+        font-size: 2.4em;
+    }
+
+    /* 説明とボタンを名称の下にそろえる（順位の幅 3.4em ＋ 間 0.8em） */
+    .kashiwazaki-seo-recommended-ranking--design-minimal .kashiwazaki-seo-recommended-ranking__body {
+        padding-left: 4.2em;
+    }
+}
+
+/* ==== 比較表：1 行に 1 つずつの表 ==== */
+.kashiwazaki-seo-recommended-ranking--design-table ol.kashiwazaki-seo-recommended-ranking__list {
+    overflow: hidden;
+    border: 1px solid var(--kashiwazaki-seo-recommended-ranking-line) !important;
+    border-radius: 10px;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table li.kashiwazaki-seo-recommended-ranking__item {
+    margin: 0 !important;
+    padding: 0.85em 1em !important;
+    border-top: 1px solid var(--kashiwazaki-seo-recommended-ranking-line);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table li.kashiwazaki-seo-recommended-ranking__item:first-child {
+    border-top: 0;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table li.kashiwazaki-seo-recommended-ranking__item:nth-child(even) {
+    background: var(--kashiwazaki-seo-recommended-ranking-soft);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table .kashiwazaki-seo-recommended-ranking__rank {
+    min-width: 2.9em;
+    height: 1.9em;
+    padding: 0 0.6em;
+    border-radius: 999px;
+    background: var(--kashiwazaki-seo-recommended-ranking-rank-bg);
+    color: var(--kashiwazaki-seo-recommended-ranking-rank-fg);
+    font-size: 0.92em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table .kashiwazaki-seo-recommended-ranking__rank-number {
+    font-size: 1.1em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table .kashiwazaki-seo-recommended-ranking__rank-suffix {
+    font-size: 0.75em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table p.kashiwazaki-seo-recommended-ranking__name {
+    font-size: 1em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table .kashiwazaki-seo-recommended-ranking__body {
+    margin-top: 0.45em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table p.kashiwazaki-seo-recommended-ranking__desc {
+    font-size: 0.9em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table p.kashiwazaki-seo-recommended-ranking__action {
+    margin-top: 0.6em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-table a.kashiwazaki-seo-recommended-ranking__button {
+    min-height: 38px;
+    padding: 0.35em 1em;
+    border-radius: 6px;
+    font-size: 0.88em;
+}
+
+@container kashiwazaki-seo-recommended-ranking (min-width: 560px) {
+    .kashiwazaki-seo-recommended-ranking--design-table li.kashiwazaki-seo-recommended-ranking__item {
+        display: grid;
+        grid-template-columns: 4.6em minmax(0, 1fr) auto;
+        column-gap: 1em;
+        align-items: center;
+        padding: 0.8em 1.1em !important;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-table .kashiwazaki-seo-recommended-ranking__head,
+    .kashiwazaki-seo-recommended-ranking--design-table .kashiwazaki-seo-recommended-ranking__body {
+        display: contents;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-table .kashiwazaki-seo-recommended-ranking__rank {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        justify-self: start;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-table p.kashiwazaki-seo-recommended-ranking__name {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-table p.kashiwazaki-seo-recommended-ranking__desc {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        margin-top: 0.15em;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-table p.kashiwazaki-seo-recommended-ranking__action {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+        align-self: center;
+        margin: 0 !important;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-table a.kashiwazaki-seo-recommended-ranking__button {
+        max-width: 14em;
+    }
+}
+
+/* ==== 上位3つを大きく：1位を大きく、2位・3位を並べ、4位以下は小さな行に ==== */
+.kashiwazaki-seo-recommended-ranking--design-podium ol.kashiwazaki-seo-recommended-ranking__list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item {
+    margin: 0 !important;
+    padding: 0.8em 1em !important;
+    border: 1px solid var(--kashiwazaki-seo-recommended-ranking-line);
+    border-radius: 12px;
+    background: var(--kashiwazaki-seo-recommended-ranking-soft);
+}
+
+/* 1位〜3位：王冠と順位を上に、中央にそろえたカード */
+.kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item--top {
+    padding: 1.2em 1.1em !important;
+    background: transparent;
+    text-align: center;
+    box-shadow: var(--kashiwazaki-seo-recommended-ranking-shadow);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium .kashiwazaki-seo-recommended-ranking__item--top .kashiwazaki-seo-recommended-ranking__head {
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium .kashiwazaki-seo-recommended-ranking__item--top .kashiwazaki-seo-recommended-ranking__rank {
+    flex-direction: column;
+    gap: 0.15em;
+    color: var(--kashiwazaki-seo-recommended-ranking-medal-text);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium .kashiwazaki-seo-recommended-ranking__item--top .kashiwazaki-seo-recommended-ranking__crown {
+    display: inline-flex;
+    font-size: 1.7em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium .kashiwazaki-seo-recommended-ranking__item--top .kashiwazaki-seo-recommended-ranking__rank-number {
+    font-size: 1.5em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium .kashiwazaki-seo-recommended-ranking__item--top p.kashiwazaki-seo-recommended-ranking__name {
+    font-size: 1.15em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item--rank-1 {
+    padding: 1.5em 1.2em !important;
+    border: 2px solid var(--kashiwazaki-seo-recommended-ranking-medal);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium .kashiwazaki-seo-recommended-ranking__item--rank-1 .kashiwazaki-seo-recommended-ranking__crown {
+    font-size: 2.2em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium .kashiwazaki-seo-recommended-ranking__item--rank-1 .kashiwazaki-seo-recommended-ranking__rank-number {
+    font-size: 1.9em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium .kashiwazaki-seo-recommended-ranking__item--rank-1 p.kashiwazaki-seo-recommended-ranking__name {
+    font-size: 1.35em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium.kashiwazaki-seo-recommended-ranking--medal li.kashiwazaki-seo-recommended-ranking__item--rank-1 {
+    background: rgba(212, 160, 23, 0.07);
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium .kashiwazaki-seo-recommended-ranking__item--top .kashiwazaki-seo-recommended-ranking__body {
+    margin-top: 0.5em;
+}
+
+/* 4位以下：小さな行（順位は丸） */
+.kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) .kashiwazaki-seo-recommended-ranking__rank {
+    width: 2.3em;
+    height: 2.3em;
+    border-radius: 50%;
+    background: var(--kashiwazaki-seo-recommended-ranking-rank-bg);
+    color: var(--kashiwazaki-seo-recommended-ranking-rank-fg);
+    font-size: 0.92em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) p.kashiwazaki-seo-recommended-ranking__name {
+    font-size: 1em;
+}
+
+.kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) a.kashiwazaki-seo-recommended-ranking__button {
+    min-height: 38px;
+    padding: 0.35em 1em;
+    font-size: 0.88em;
+}
+
+@container kashiwazaki-seo-recommended-ranking (min-width: 560px) {
+    .kashiwazaki-seo-recommended-ranking--design-podium ol.kashiwazaki-seo-recommended-ranking__list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item {
+        grid-column: 1 / -1;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item--rank-2,
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item--rank-3 {
+        grid-column: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 2位・3位のボタンをカードの下端にそろえる */
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item--rank-2 .kashiwazaki-seo-recommended-ranking__body,
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item--rank-3 .kashiwazaki-seo-recommended-ranking__body {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item--rank-2 p.kashiwazaki-seo-recommended-ranking__action,
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item--rank-3 p.kashiwazaki-seo-recommended-ranking__action {
+        margin-top: auto;
+        padding-top: 0.8em;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item--rank-1 {
+        padding: 1.8em 2em !important;
+    }
+
+    /* 4位以下は表の行のように横に並べる */
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        column-gap: 1em;
+        align-items: center;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) .kashiwazaki-seo-recommended-ranking__head,
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) .kashiwazaki-seo-recommended-ranking__body {
+        display: contents;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) .kashiwazaki-seo-recommended-ranking__rank {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) p.kashiwazaki-seo-recommended-ranking__name {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) p.kashiwazaki-seo-recommended-ranking__desc {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        margin-top: 0.1em;
+    }
+
+    .kashiwazaki-seo-recommended-ranking--design-podium li.kashiwazaki-seo-recommended-ranking__item:not(.kashiwazaki-seo-recommended-ranking__item--top) p.kashiwazaki-seo-recommended-ranking__action {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+        margin: 0 !important;
+    }
+}
+
+/* ---- キーボードで選んだときの枠 ----
+   黒に近い線の内側に白い線を重ね（2 本の比 18.88:1）、どんな色の地でもどちらかの線が見えるようにする。
+   メインの色は選ばれた色によっては地に溶けるので、フォーカスの表示には使わない。
+   型ごとのボタンの影（box-shadow）より後に書いて、フォーカスの間は内側の白い線を優先する */
+.kashiwazaki-seo-recommended-ranking a:focus-visible {
+    outline: 3px solid #111111;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #ffffff;
+}
+
+/* ---- 動き・印刷 ---- */
+@media (prefers-reduced-motion: reduce) {
+    .kashiwazaki-seo-recommended-ranking a.kashiwazaki-seo-recommended-ranking__button {
+        transition: none;
+    }
+
+    .kashiwazaki-seo-recommended-ranking a.kashiwazaki-seo-recommended-ranking__button:active {
+        transform: none;
+    }
+}
+
+@media print {
+    .kashiwazaki-seo-recommended-ranking li.kashiwazaki-seo-recommended-ranking__item {
+        break-inside: avoid;
+        box-shadow: none !important;
+    }
+}

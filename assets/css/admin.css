@@ -1,0 +1,347 @@
+/**
+ * Kashiwazaki SEO Recommended Ranking：管理画面
+ */
+
+/* ---- 設定画面 ---- */
+.kashiwazaki-seo-recommended-ranking-howto {
+    max-width: 960px;
+    margin: 16px 0 8px;
+    padding: 4px 20px 8px;
+    border: 1px solid #c3c4c7;
+    border-left: 4px solid #2271b1;
+    background: #fff;
+}
+
+.kashiwazaki-seo-recommended-ranking-howto h2 {
+    margin: 12px 0 4px;
+    font-size: 1.1em;
+}
+
+.kashiwazaki-seo-recommended-ranking-howto ol {
+    margin-left: 1.5em;
+}
+
+.kashiwazaki-seo-recommended-ranking-check {
+    display: inline-block;
+    margin: 0 18px 6px 0;
+}
+
+/* ---- ランキング一覧 ---- */
+.kashiwazaki-seo-recommended-ranking-shortcode-field {
+    width: 100%;
+    max-width: 280px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 12px;
+}
+
+.post-type-kashiwazaki_ranking .column-kashiwazaki_seo_recommended_ranking_items {
+    width: 14%;
+}
+
+.post-type-kashiwazaki_ranking .column-kashiwazaki_seo_recommended_ranking_shortcode {
+    width: 22%;
+}
+
+.post-type-kashiwazaki_ranking .column-kashiwazaki_seo_recommended_ranking_usage {
+    width: 12%;
+}
+
+/* ---- ランキングの編集画面 ---- */
+.kashiwazaki-seo-recommended-ranking-editor .form-table th {
+    width: 160px;
+}
+
+.kashiwazaki-seo-recommended-ranking-items-title {
+    margin: 1.5em 0 0.3em;
+}
+
+.kashiwazaki-seo-recommended-ranking-items {
+    margin: 10px 0;
+}
+
+.kashiwazaki-seo-recommended-ranking-item {
+    margin: 0 0 10px;
+    border: 1px solid #c3c4c7;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-bottom: 1px solid #dcdcde;
+    border-radius: 6px 6px 0 0;
+    background: #f6f7f7;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__handle {
+    color: #787c82;
+    cursor: move;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__rank {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__tools {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__tools .button .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__fields {
+    padding: 4px 12px 8px;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__fields p {
+    margin: 8px 0;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__fields label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+
+.kashiwazaki-seo-recommended-ranking-required {
+    color: #b32d2e;
+    font-weight: 400;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__url-error {
+    display: block;
+    margin-top: 4px;
+    color: #b32d2e;
+}
+
+.kashiwazaki-seo-recommended-ranking-item__url[aria-invalid="true"] {
+    border-color: #d63638;
+}
+
+.kashiwazaki-seo-recommended-ranking-item-placeholder {
+    margin: 0 0 10px;
+    border: 2px dashed #2271b1;
+    border-radius: 6px;
+    background: #f0f6fc;
+}
+
+.kashiwazaki-seo-recommended-ranking-items-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.kashiwazaki-seo-recommended-ranking-add .dashicons {
+    margin-top: 4px;
+    font-size: 16px;
+}
+
+.kashiwazaki-seo-recommended-ranking-count {
+    color: #50575e;
+}
+
+.kashiwazaki-seo-recommended-ranking-validation {
+    margin-top: 12px !important;
+}
+
+/* プレビュー */
+.kashiwazaki-seo-recommended-ranking-preview__toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 6px 0;
+}
+
+.kashiwazaki-seo-recommended-ranking-preview__width.is-active {
+    border-color: #2271b1;
+    background: #2271b1;
+    color: #fff;
+}
+
+.kashiwazaki-seo-recommended-ranking-preview__frame {
+    max-width: 760px;
+    margin: 8px 0;
+    padding: 16px;
+    border: 1px solid #dcdcde;
+    background: #fff;
+    color: #1e1e1e;
+    font-size: 16px;
+}
+
+.kashiwazaki-seo-recommended-ranking-preview__frame[data-width="sp"] {
+    max-width: 375px;
+    padding: 12px;
+}
+
+.kashiwazaki-seo-recommended-ranking-preview__json pre {
+    max-height: 420px;
+    overflow: auto;
+    padding: 10px;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* ショートコードと使用状況 */
+.kashiwazaki-seo-recommended-ranking-copy {
+    display: flex;
+    gap: 4px;
+}
+
+.kashiwazaki-seo-recommended-ranking-copy input {
+    min-width: 0;
+    font-size: 12px;
+}
+
+.kashiwazaki-seo-recommended-ranking-usage-list {
+    margin: 0;
+    padding-left: 1.2em;
+    list-style: disc;
+}
+
+.kashiwazaki-seo-recommended-ranking-usage-list li {
+    margin-bottom: 4px;
+}
+
+/* ---- 投稿の編集画面のボックス ---- */
+.kashiwazaki-seo-recommended-ranking-post-box select {
+    max-width: 100%;
+}
+
+.kashiwazaki-seo-recommended-ranking-positions {
+    margin: 8px 0;
+}
+
+.kashiwazaki-seo-recommended-ranking-positions legend {
+    margin-bottom: 4px;
+}
+
+.kashiwazaki-seo-recommended-ranking-post-links a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.kashiwazaki-seo-recommended-ranking-post-warning {
+    padding: 6px 8px;
+    border-left: 4px solid #dba617;
+    background: #fcf9e8;
+}
+
+.kashiwazaki-seo-recommended-ranking-manual-help input {
+    font-size: 12px;
+}
+
+[hidden].kashiwazaki-seo-recommended-ranking-post-warning,
+[hidden].kashiwazaki-seo-recommended-ranking-manual-help,
+[hidden].kashiwazaki-seo-recommended-ranking-edit-link,
+.kashiwazaki-seo-recommended-ranking-item__url-error[hidden],
+.kashiwazaki-seo-recommended-ranking-validation[hidden] {
+    display: none !important;
+}
+
+/* プレビューの中の見出し（管理画面の見出しのスタイルを打ち消し、公開ページに近い大きさにする） */
+.kashiwazaki-seo-recommended-ranking-preview__canvas .kashiwazaki-seo-recommended-ranking__heading {
+    margin: 0 0 0.6em;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.kashiwazaki-seo-recommended-ranking-preview__canvas h2.kashiwazaki-seo-recommended-ranking__heading {
+    font-size: 1.5em;
+}
+
+.kashiwazaki-seo-recommended-ranking-preview__canvas h3.kashiwazaki-seo-recommended-ranking__heading {
+    font-size: 1.3em;
+}
+
+.kashiwazaki-seo-recommended-ranking-preview__canvas h4.kashiwazaki-seo-recommended-ranking__heading {
+    font-size: 1.15em;
+}
+
+.kashiwazaki-seo-recommended-ranking-preview__canvas .kashiwazaki-seo-recommended-ranking-frame {
+    margin: 0;
+}
+
+.kashiwazaki-seo-recommended-ranking-preview__canvas .kashiwazaki-seo-recommended-ranking-frame--has-heading {
+    margin-top: 0.6em;
+}
+
+/* プレビューの「スマホ」は、枠の幅（375px）で frontend.css のコンテナクエリが狭い形に切り替える（写しの規則は持たない） */
+
+/* 管理画面の p（13px）が、プレビューの中の段落の文字の大きさに入り込まないようにする */
+.kashiwazaki-seo-recommended-ranking-preview__canvas .kashiwazaki-seo-recommended-ranking p.kashiwazaki-seo-recommended-ranking__lead,
+.kashiwazaki-seo-recommended-ranking-preview__canvas .kashiwazaki-seo-recommended-ranking p.kashiwazaki-seo-recommended-ranking__action {
+    font-size: 1em;
+    line-height: inherit;
+}
+
+/* ---- 設定画面：デザインの型 ---- */
+.kashiwazaki-seo-recommended-ranking-designs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+    max-width: 960px;
+}
+
+/* 本体の「.form-table td fieldset label」（inline-block・余白の !important）より強くする */
+.form-table td fieldset.kashiwazaki-seo-recommended-ranking-designs label.kashiwazaki-seo-recommended-ranking-design,
+.kashiwazaki-seo-recommended-ranking-design {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0 !important;
+    line-height: 1.4;
+    padding: 10px 12px 10px 36px;
+    border: 1px solid #c3c4c7;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.kashiwazaki-seo-recommended-ranking-design input[type="radio"] {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    margin: 0;
+}
+
+.kashiwazaki-seo-recommended-ranking-design:has(input:checked) {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    background: #f0f6fc;
+}
+
+.kashiwazaki-seo-recommended-ranking-design:has(input:focus-visible) {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+.kashiwazaki-seo-recommended-ranking-design__name {
+    font-weight: 600;
+}
+
+.kashiwazaki-seo-recommended-ranking-design__desc {
+    color: #50575e;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.kashiwazaki-seo-recommended-ranking-design-sample .kashiwazaki-seo-recommended-ranking-preview__toolbar {
+    margin-top: 0;
+}

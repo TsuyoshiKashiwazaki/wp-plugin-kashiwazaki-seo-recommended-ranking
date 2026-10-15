@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>概要 - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html" class="active">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>Kashiwazaki SEO Recommended Ranking マニュアル</h1>
+        <img src="images/main-visual.png" alt="SEO Recommended Ranking メインビジュアル" style="width:100%;border-radius:8px;margin-bottom:24px;">
+        <p class="lead">投稿・固定ページ・カスタム投稿に、おすすめランキングを表示するプラグインです。ランキングを 1 か所で作って管理し、ページの本文の上や下に自動で表示したり、本文の好きな位置にショートコードで置いたりできます。ランキングの内容は、ページの見た目と構造化データ（JSON-LD）の両方に、同じ文字で出力されます。</p>
+
+        <p>「初心者におすすめの SEO ツール ランキング」のように、順位をつけて紹介するページをよく書く方のためのプラグインです。ランキングの見出し・説明・順位ごとの名称・説明・URL を管理画面で 1 度入力しておけば、必要なページに何度でも表示できます。ランキングを更新すると、そのランキングを使っているすべてのページの表示が同じ内容に変わります。</p>
+
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h3>ランキングの一元管理</h3>
+                <p>ランキングを専用の画面でつくり、一覧で管理します。順位は 3 位から 10 位まで。複製や、入力中のプレビューも使えます。</p>
+            </div>
+            <div class="feature-card">
+                <h3>自動挿入とショートコード</h3>
+                <p>ページごとに、表示するランキングと位置（本文の上・本文の下・手動・表示しない）を選べます。本文の好きな位置には、ショートコードで置けます。</p>
+            </div>
+            <div class="feature-card">
+                <h3>構造化データ</h3>
+                <p>表示したランキングと同じ内容を、構造化データ（JSON-LD）としてページに出力します。ランキングごとに出力を止めることもできます。</p>
+            </div>
+        </div>
+
+        <figure class="infographic">
+            <img src="images/infographics/overview-flow.png" alt="ランキングを作り、ページで選び、ページに表示するまでの流れ" class="lightbox-trigger">
+            <figcaption>ランキングを作る → ページで選ぶ → ページに表示（構造化データも出力）。更新は、使っているすべてのページに反映されます</figcaption>
+        </figure>
+
+        <figure class="screenshot">
+            <img src="images/screenshots/46-edit-overview.png" alt="ランキングの編集画面（見出し・説明・順位ごとの入力欄）" class="lightbox-trigger">
+            <figcaption>ランキングをつくる画面（見出し・説明と、順位ごとの名称・説明・URL を入力します）</figcaption>
+        </figure>
+
+        <h2>できること</h2>
+        <ul>
+            <li>ランキング 1 つにつき、見出し・見出しの種類・概要説明と、3 位から 10 位までの順位（名称・簡単な説明・URL）を入力できます。</li>
+            <li>見た目を 5 つの型（スタンダード・王冠・シンプル・比較表・上位3つを大きく）から選べます。メインの色、1 位から 3 位の金・銀・銅の色、ボタンの文言も決められます。</li>
+            <li>投稿・固定ページ・カスタム投稿の編集画面で、表示するランキングと位置を選べます。本文の好きな位置には、ショートコードで置けます。</li>
+            <li>リンクを新しいタブで開くか、ほかのサイトへのリンクに nofollow や sponsored を付けるかを、ランキングごとに決められます。</li>
+            <li>構造化データ（JSON-LD）を、ランキングごとにオン・オフできます。</li>
+            <li>置いた場所の幅に合わせて、スマホでも見やすい形に自動で切り替わります。</li>
+        </ul>
+
+        <h2>SEO / GEO における強み</h2>
+        <p>このプラグインの出力は、次のような点で、検索エンジンや AI がページの内容をつかむ助けになる可能性があります。効果の大きさは、ページ全体の内容や検索エンジンの判断によって変わります。</p>
+
+        <h3>SEO（検索エンジン向け）</h3>
+        <ul>
+            <li><strong>ランキングを、順位のついた一覧として出力します。</strong>順位ごとの名称・説明・リンクが、1 つの一覧としてまとまった形で本文に出ます。見出し（h2・h3・h4）は、ランキングの枠の直前に置かれ、見出しの階層を記事に合わせて選べます。</li>
+            <li><strong>構造化データ（JSON-LD）を出力できます。</strong>ItemList（ランキング全体）・ListItem（各順位）・Recommendation（おすすめ）の形で、順位・名称・説明・URL を出力します。検索エンジンがランキングの構造を読み取る助けになる場合があります。ただし、検索結果での表示や順位への影響は、検索エンジンの判断によります。</li>
+            <li><strong>リンクの rel を選べます。</strong>広告やアフィリエイトのリンクには sponsored、リンク先を評価してほしくないときは nofollow を、ほかのサイトへのリンクだけに付けられます。</li>
+            <li><strong>ページ速度を落としにくい作りです。</strong>公開ページで読み込むのは CSS 1 本（約 33KB、圧縮すると約 5KB）だけで、JavaScript は読み込みません。ランキングを表示するページだけで読み込みます。</li>
+        </ul>
+
+        <h3>GEO（AI 検索向け）</h3>
+        <ul>
+            <li><strong>ランキングの内容が、本文と構造化データの両方に同じ文字で出ます。</strong>順位・名称・説明・URL が整理された形でページにあるため、AI が内容を引用しやすい構造を作る助けになります。</li>
+            <li><strong>おすすめしている人（author）を構造化データに入れられます。</strong>ページの投稿者（人）またはサイト名（組織）を選べます。</li>
+        </ul>
+
+        <div class="callout callout-note">
+            <div class="callout-title">構造化データについての注意</div>
+            <p>このプラグインは価格や評価を出力しません。そのため、おすすめする対象の種類で「商品（Product）」を選んでも、Google の商品のリッチリザルトの対象にはならず、Search Console に注意が表示されることがあります。迷ったときは「指定しない（Thing）」を選んでください。詳しくは<a href="ranking-schema.html">構造化データ</a>のページを見てください。</p>
+        </div>
+
+        <h2>目次</h2>
+        <table>
+            <thead>
+                <tr><th style="width:32%;">ページ</th><th>内容</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="setup.html">インストール・初期設定</a></td><td>インストールから、最初のランキングを表示するまで</td></tr>
+                <tr><td><a href="ranking-list.html">ランキング一覧</a></td><td>つくったランキングの一覧、複製、ショートコードのコピー</td></tr>
+                <tr><td><a href="ranking-content.html">ランキングの内容</a></td><td>見出し・説明・順位ごとの入力、公開できる条件、入力のメッセージ</td></tr>
+                <tr><td><a href="ranking-design.html">デザイン・ボタン・リンク</a></td><td>5 つの型、ボタンの文言、リンクの開き方、rel</td></tr>
+                <tr><td><a href="ranking-schema.html">構造化データ</a></td><td>JSON-LD の出力、対象の種類、まとめの形</td></tr>
+                <tr><td><a href="ranking-preview.html">プレビューとショートコード</a></td><td>入力中のプレビュー、ショートコード、使っているページ</td></tr>
+                <tr><td><a href="post-box.html">投稿の編集画面のボックス</a></td><td>ページごとに、表示するランキングと位置を選ぶ</td></tr>
+                <tr><td><a href="settings.html">設定画面</a></td><td>表示するページ、デザインの既定、構造化データ、削除のときのデータ</td></tr>
+                <tr><td><a href="display.html">公開ページでの表示</a></td><td>どこに、どんな条件で表示されるか</td></tr>
+                <tr><td><a href="glossary.html">用語集</a></td><td>このマニュアルの用語のまとめ</td></tr>
+                <tr><td><a href="troubleshooting.html">トラブルシューティング</a></td><td>ランキングが表示されないときの確認など</td></tr>
+            </tbody>
+        </table>
+
+        <h2>動作要件</h2>
+        <table>
+            <thead>
+                <tr><th style="width:32%;">項目</th><th>内容</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>WordPress</td><td>6.0 以上</td></tr>
+                <tr><td>PHP</td><td>7.4 以上（特別な PHP の拡張は必要ありません）</td></tr>
+                <tr><td>ブラウザ</td><td>管理画面は、WordPress の管理画面が動く現在のブラウザ。公開ページの「置いた場所の幅に合わせた切り替え」は新しいブラウザで働き、古いブラウザでは狭い形（縦に並ぶ形）のままで表示されます。</td></tr>
+                <tr><td>権限</td><td>ランキングの作成・編集は、WordPress の「投稿」と同じ権限で行えます。設定画面は管理者だけが開けます。</td></tr>
+            </tbody>
+        </table>
+
+        <nav class="page-nav">
+            <span></span>
+            <a href="setup.html" class="next">インストール・初期設定 &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

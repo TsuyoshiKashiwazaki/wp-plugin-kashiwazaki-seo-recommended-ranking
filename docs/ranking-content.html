@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランキングの内容 - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html" class="active">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>ランキングの内容</h1>
+        <p class="lead">ランキングの見出し・説明・順位ごとの名称と URL を入力する「ランキングの内容」ボックスの使い方です。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/publish-rules.png" alt="公開できる条件（名称のある順位が 3 つ以上あり、名称が空の順位がないこと）" class="lightbox-trigger">
+            <figcaption>公開できる条件。満たさないときの動きは、新規・下書きと、公開中とで違います</figcaption>
+        </figure>
+
+        <h2>画面の開き方</h2>
+        <p>ランキング一覧の見出しの横にある<strong>「ランキングを新規作成」</strong>をクリックします。つくったランキングを直すときは、一覧のタイトルをクリックします。</p>
+        <p>編集画面は、上から次の順に並びます。</p>
+        <table>
+            <thead>
+                <tr><th style="width:34%;">場所</th><th>内容</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>タイトル欄（管理用の名前）</td><td>一覧で見分けるための名前です。</td></tr>
+                <tr><td>ボックス「ランキングの内容」</td><td>見出し・見出しの種類・概要説明と、順位ごとの名称・説明・URL を入力します。このページで説明します。</td></tr>
+                <tr><td>ボックス「デザイン・ボタン・リンク」</td><td><a href="ranking-design.html">デザイン・ボタン・リンク</a>のページで説明します。</td></tr>
+                <tr><td>ボックス「構造化データ」</td><td><a href="ranking-schema.html">構造化データ</a>のページで説明します。</td></tr>
+                <tr><td>ボックス「プレビュー」</td><td><a href="ranking-preview.html">プレビューとショートコード</a>のページで説明します。</td></tr>
+                <tr><td>右側の「公開」と「ショートコードと使っているページ」</td><td>公開・下書きの操作は WordPress の標準の「公開」ボックスです。ショートコードと使っているページは、<a href="ranking-preview.html">プレビューとショートコード</a>のページで説明します。</td></tr>
+            </tbody>
+        </table>
+
+        <h2>管理用の名前</h2>
+        <p>画面の一番上のタイトル欄に入力します。入力欄には「管理用の名前（例：SEOツールのおすすめランキング）」と薄く出ています。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/05-new-title.png" alt="タイトル欄「管理用の名前（例：SEOツールのおすすめランキング）」" class="lightbox-trigger">
+            <figcaption>管理用の名前の入力欄</figcaption>
+        </figure>
+        <ul>
+            <li>ランキング一覧や、ページの編集画面のランキングの選択肢に出る名前です。</li>
+            <li>ふだんはページに表示されません。ただし、下の「見出し」を空欄にしたときは、この名前が見出しとして表示されます。</li>
+        </ul>
+
+        <h2>ボックス「ランキングの内容」</h2>
+        <figure class="screenshot">
+            <img src="images/screenshots/06-content-blank.png" alt="新規作成の直後のボックス「ランキングの内容」（見出し・見出しの種類・概要説明・1位から3位の入力欄）" class="lightbox-trigger">
+            <figcaption>新規作成の直後の「ランキングの内容」。順位の入力欄が 3 つ並んでいます</figcaption>
+        </figure>
+
+        <h3>見出し・見出しの種類・概要説明</h3>
+        <figure class="screenshot">
+            <img src="images/screenshots/09-content-heading.png" alt="見出し・見出しの種類・概要説明を入力した状態" class="lightbox-trigger">
+            <figcaption>見出し・見出しの種類・概要説明の入力例</figcaption>
+        </figure>
+        <table>
+            <thead>
+                <tr><th style="width:20%;">項目</th><th>説明</th><th style="width:24%;">入力できる範囲・既定値</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>見出し</td><td>ページに表示する見出しです。空欄のときは、管理用の名前を使います。例：初心者におすすめの SEO ツール ランキング</td><td>200 文字まで</td></tr>
+                <tr><td>見出しの種類</td><td>記事の見出しの階層に合わせて選びます（本文の h2 の中に置くなら h3 など）。</td><td>既定は「h2（大見出し）」</td></tr>
+                <tr><td>概要説明</td><td>見出しの下に表示する説明です。空欄なら表示しません。改行も使えます。</td><td>2000 文字まで</td></tr>
+            </tbody>
+        </table>
+        <p><strong>見出しの種類</strong>の選択肢と、それぞれの結果は次のとおりです。</p>
+        <table>
+            <thead>
+                <tr><th style="width:34%;">選択肢</th><th>結果</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>h2（大見出し）</td><td>見出しを h2 で表示します。</td></tr>
+                <tr><td>h3（中見出し）</td><td>見出しを h3 で表示します。</td></tr>
+                <tr><td>h4（小見出し）</td><td>見出しを h4 で表示します。</td></tr>
+                <tr><td>見出しにしない（太字の文字）</td><td>見出しのタグは使わず、太字の文字として表示します。記事の見出しの数を増やしたくないときに選びます。</td></tr>
+                <tr><td>見出しを表示しない</td><td>見出しを表示しません（見出しが空欄で管理用の名前を使うときも、表示しません）。</td></tr>
+            </tbody>
+        </table>
+        <div class="callout callout-tip">
+            <div class="callout-title">見出しはランキングの枠の外に置かれます</div>
+            <p>見出しは、ランキングの枠の直前に置かれます。目次を自動でつくるプラグインを使っているときも、目次がランキングの枠の中に入り込むことはありません。</p>
+        </div>
+
+        <h3>順位ごとの入力</h3>
+        <p>順位は、<strong>3 位から 10 位まで</strong>つくれます。1 つの順位に、次の 3 つを入力します。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/10-item-row.png" alt="1 位の入力欄（名称・簡単な説明・URL）" class="lightbox-trigger">
+            <figcaption>1 つの順位の入力欄</figcaption>
+        </figure>
+        <table>
+            <thead>
+                <tr><th style="width:20%;">項目</th><th>説明</th><th style="width:24%;">入力できる範囲</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>名称（必須）</td><td>おすすめするもの・サービスの名前です。名称のある順位だけが、ページに表示されます。</td><td>200 文字まで</td></tr>
+                <tr><td>簡単な説明</td><td>名称の下に表示する説明です。空欄なら表示しません。改行も使えます。</td><td>1000 文字まで</td></tr>
+                <tr><td>URL</td><td>名称のリンクと、ボタンのリンク先です。空欄なら、リンクもボタンも出ません。</td><td>2048 文字まで。入力欄には「https://」と薄く出ています</td></tr>
+            </tbody>
+        </table>
+
+        <h4>順位の操作</h4>
+        <table>
+            <thead>
+                <tr><th style="width:26%;">操作</th><th>動き</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>左の「つまみ」（三本線）をドラッグ</td><td>順位を並べ替えます。並べ替えると、順位の番号（1 位・2 位…）が自動で振り直されます。</td></tr>
+                <tr><td>「↑」「↓」のボタン</td><td>1 つ上・1 つ下に動かします。1 位の「↑」と、いちばん下の「↓」は押せません。</td></tr>
+                <tr><td>「削除」</td><td>その順位を削除します。順位が 3 つのときは押せません。</td></tr>
+                <tr><td>「順位を追加」</td><td>いちばん下に、新しい順位を足します。順位が 10 のときは押せません。</td></tr>
+                <tr><td>「N / 最大 10」の表示</td><td>いまの順位の数です。</td></tr>
+            </tbody>
+        </table>
+        <figure class="screenshot">
+            <img src="images/screenshots/20-item-row-min.png" alt="順位が 3 つのときの 1 位の行（「削除」のボタンが押せない状態）" class="lightbox-trigger">
+            <figcaption>順位が 3 つのときは、「削除」のボタンが押せません</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/07-add-max.png" alt="順位が 10 のとき、「順位を追加」のボタンが押せない状態" class="lightbox-trigger">
+            <figcaption>順位が 10 のときは、「順位を追加」のボタンが押せません</figcaption>
+        </figure>
+        <p>順位が 3 つのときに「削除」を押そうとすると、「順位は 3 つより少なくできません。」と表示されます。</p>
+
+        <h4>URL の書き方</h4>
+        <table>
+            <thead>
+                <tr><th style="width:36%;">入力</th><th>保存されるときの動き</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>https://</code> か <code>http://</code> で始まる URL</td><td>そのまま使います。</td></tr>
+                <tr><td>「/」で始まるサイト内のパス（例：<code>/contact/</code>）</td><td>このサイトのアドレスを補って使います。</td></tr>
+                <tr><td>「//」で始まる URL</td><td><code>https://</code> か <code>http://</code> を補って使います。</td></tr>
+                <tr><td><code>example.com/…</code> のような、始まりを書かない URL</td><td><code>http://</code> を補って使います。</td></tr>
+                <tr><td>それ以外（<code>javascript:</code> や <code>ftp:</code> など）</td><td>空として扱い、リンクもボタンも出ません。入力中は赤い枠とメッセージで知らせます。</td></tr>
+            </tbody>
+        </table>
+        <figure class="screenshot">
+            <img src="images/screenshots/19-url-error.png" alt="使えない形の URL を入れたとき、入力欄が赤くなり、メッセージが出る" class="lightbox-trigger">
+            <figcaption>使えない形の URL を入力したとき</figcaption>
+        </figure>
+        <div class="callout callout-note">
+            <div class="callout-title">文字の整理</div>
+            <p>入力した文字は、保存するときに整理されます。HTML のタグは取り除かれ、見えない制御文字も取り除かれます。「10%20代」のような、パーセントと数字の並びはそのまま残ります。</p>
+        </div>
+        <div class="callout callout-note">
+            <div class="callout-title">空の行について</div>
+            <p>名称・説明・URL のすべてが空の順位は、保存するときに捨てられます。名称が空で、説明か URL だけが入力された順位は「名称が空の順位」になり、公開できません（下の「公開できる条件」を見てください）。</p>
+        </div>
+
+        <h2>公開できる条件</h2>
+        <p>ランキングを公開（または公開中のランキングを更新）するには、次の 2 つを満たす必要があります。</p>
+        <ul>
+            <li>名称のある順位が、<strong>3 つ以上</strong>あること。</li>
+            <li>名称が空で、説明か URL だけが入力された順位が<strong>ないこと</strong>。</li>
+        </ul>
+        <p>満たしていないときの動きは、ランキングの状態によって違います。</p>
+        <table>
+            <thead>
+                <tr><th style="width:26%;">ランキングの状態</th><th>動き</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>新規・下書き</td><td>公開されず、<strong>下書きとして保存</strong>されます。</td></tr>
+                <tr><td>公開中</td><td>順位の変更は<strong>保存されず、前の内容のまま</strong>です。順位以外の項目（見出し・デザインなど）は保存されます。</td></tr>
+            </tbody>
+        </table>
+
+        <h2>入力のメッセージ</h2>
+        <h3>入力中に出るメッセージ</h3>
+        <p>保存のボタンを押したときに、条件を満たしていないと、順位の下に黄色の枠でメッセージが出ます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/18-validation-empty-name.png" alt="名称が空の順位があるときのメッセージ" class="lightbox-trigger">
+            <figcaption>名称が空の順位があるとき</figcaption>
+        </figure>
+        <table>
+            <thead>
+                <tr><th style="width:50%;">メッセージ</th><th>いつ出るか・対処</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>公開するには、3位までの名称を入力してください。</td><td>名称のある順位が 3 つに足りないとき。名称を入力してください。</td></tr>
+                <tr><td>名称が空の順位があります。名称を入力するか、その順位を削除してください。</td><td>名称が空で、説明か URL がある順位があるとき。</td></tr>
+                <tr><td>URL は https:// か http:// で始まる形、または「/」で始まるサイト内のパスで入力してください（このままでは保存されません）。</td><td>URL に使えない形を入力したとき。</td></tr>
+                <tr><td>順位は 3 つより少なくできません。</td><td>順位が 3 つのときに「削除」を押したとき。</td></tr>
+            </tbody>
+        </table>
+
+        <h3>保存したあとに出るメッセージ</h3>
+        <p>公開できる条件を満たさないまま保存したときは、保存後に画面の上にメッセージが出ます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/21-notice-draft.png" alt="新規のランキングを条件を満たさないまま保存したときのメッセージ（下書きとして保存）" class="lightbox-trigger">
+            <figcaption>新規・下書きのとき</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/22-notice-kept.png" alt="公開中のランキングを条件を満たさないまま保存したときのメッセージ（前の内容のまま）" class="lightbox-trigger">
+            <figcaption>公開中のとき</figcaption>
+        </figure>
+        <table>
+            <thead>
+                <tr><th style="width:56%;">メッセージ</th><th>いつ出るか</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>公開するには、3位までの名称を入力してください（名称が空の順位があるときも公開できません）。下書きとして保存しました。</td><td>新規・下書きのランキングで、条件を満たさなかったとき。</td></tr>
+                <tr><td>公開中のランキングは、3位以上の名称が必要です（名称が空の順位も保存できません）。順位の変更は保存せず、前の内容のままにしました。そのほかの項目は保存しました。</td><td>公開中のランキングで、条件を満たさなかったとき。</td></tr>
+            </tbody>
+        </table>
+        <p>ふだんの保存のメッセージ（「ランキングを公開しました。」など）は、<a href="ranking-list.html">ランキング一覧</a>のページにまとめています。</p>
+
+        <h2>公開する・下書きにする</h2>
+        <p>右側の「公開」ボックスは、WordPress の標準のものです（画面は<a href="ranking-preview.html">プレビューとショートコード</a>のページにあります）。</p>
+        <ul>
+            <li><strong>公開</strong>：ランキングが、使っているページに表示されます。</li>
+            <li><strong>下書き保存</strong>：ページには表示されません。書きかけのまま置いておけます。</li>
+            <li>公開の日時を未来にすると、公開の予約になります。</li>
+            <li>公開中のランキングを更新すると、そのランキングを使っているすべてのページの表示が、新しい内容に変わります。</li>
+        </ul>
+
+        <nav class="page-nav">
+            <a href="ranking-list.html" class="prev">&laquo; ランキング一覧</a>
+            <a href="ranking-design.html" class="next">デザイン・ボタン・リンク &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

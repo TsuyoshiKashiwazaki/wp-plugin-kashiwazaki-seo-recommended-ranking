@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用語集 - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html" class="active">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>用語集</h1>
+        <p class="lead">このマニュアルに出てくる用語をまとめています。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/glossary-map.png" alt="用語のまとめ（ショートコード・構造化データ・JSON-LD・rel・ItemList・Guide）" class="lightbox-trigger">
+            <figcaption>このマニュアルに出てくる主な用語</figcaption>
+        </figure>
+
+        <p>このマニュアルに出てくる用語を、まとめました。</p>
+
+        <h2>用語の一覧</h2>
+        <table>
+            <thead>
+                <tr><th style="width:28%;">用語</th><th>意味</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>author（おすすめしている人）</td><td>構造化データに入れる、「誰がおすすめしているか」の情報です。ページの投稿者（人）か、サイト名（組織）を選べます。<a href="settings.html">設定画面</a>で決めます。</td></tr>
+                <tr><td>Guide（ガイド）</td><td>構造化データの形の 1 つです。「おすすめ○選」のように、ランキングそのものが記事の主題のときに使います。<a href="ranking-schema.html">構造化データ</a>の「まとめの形」で選びます。</td></tr>
+                <tr><td>ItemList（アイテムリスト）</td><td>構造化データの形の 1 つで、「順位のついた一覧」を表します。このプラグインでは、ランキング全体を表します。</td></tr>
+                <tr><td>JSON-LD</td><td>構造化データを書くための形式の 1 つです。ページの中に、画面には見えない形で置かれます。</td></tr>
+                <tr><td>ListItem（リストアイテム）</td><td>ItemList の中の、1 つ 1 つの順位を表す形です。</td></tr>
+                <tr><td>nofollow</td><td>リンクの rel の 1 つです。リンク先を評価してほしくないときに付けます。</td></tr>
+                <tr><td>noopener</td><td>リンクを新しいタブで開くときに付ける、安全のための印です。新しいタブから、元のページを操作できないようにします。このプラグインが自動で付けます。</td></tr>
+                <tr><td>Product（商品）</td><td>「おすすめする対象の種類」の選択肢の 1 つです。並べたものが商品のときに選びます。</td></tr>
+                <tr><td>Recommendation（おすすめ）</td><td>構造化データの形の 1 つで、「おすすめ」を表します。順位ごとに 1 つ出力されます。</td></tr>
+                <tr><td>rel</td><td>リンクに付ける、「リンク先とどういう関係か」を表す印です。nofollow・sponsored・noopener などがあります。</td></tr>
+                <tr><td>Search Console</td><td>Google が提供する、サイトの検索での状態を確かめる無料のツールです。</td></tr>
+                <tr><td>Service（サービス）</td><td>「おすすめする対象の種類」の選択肢の 1 つです。並べたものがサービスのときに選びます。</td></tr>
+                <tr><td>sponsored</td><td>リンクの rel の 1 つです。広告やアフィリエイトのリンクに付けます。</td></tr>
+                <tr><td>Thing（指定しない）</td><td>「おすすめする対象の種類」の選択肢の 1 つです。種類を決めないときに選びます。迷ったときは、これを選びます。</td></tr>
+                <tr><td>管理用の名前</td><td>ランキングを一覧などで見分けるための名前です。ランキングの編集画面の、いちばん上のタイトル欄に入力します。見出しが空欄のときは、見出しとして表示されます。</td></tr>
+                <tr><td>見出し</td><td>ランキングの上に表示される題名です。見出しの種類（h2・h3・h4・太字）を選べます。</td></tr>
+                <tr><td>構造化データ</td><td>ページの内容を、検索エンジンなどのプログラムが読み取りやすい形で書いたデータです。このプラグインは、ランキングの内容を JSON-LD の形で出力できます。</td></tr>
+                <tr><td>順位</td><td>ランキングの 1 位、2 位…のことです。3 位から 10 位まで、つくれます。1 つの順位に、名称・簡単な説明・URL を入力します。</td></tr>
+                <tr><td>ショートコード</td><td>本文に書く、<code>[ ]</code>（角括弧）で囲んだ短い文字で、書いた位置に、ランキングなどを表示する仕組みです。このプラグインのショートコードは <code style="word-break:break-all;">[kashiwazaki_seo_recommended_ranking]</code> です。</td></tr>
+                <tr><td>デザインの型</td><td>ランキングの見た目の種類です。スタンダード・王冠・シンプル・比較表・上位3つを大きく、の 5 つがあります。</td></tr>
+                <tr><td>投稿タイプ</td><td>WordPress の「投稿」「固定ページ」などの、ページの種類です。サイトに独自の種類（カスタム投稿）があることもあります。</td></tr>
+                <tr><td>表示位置</td><td>ページの中の、ランキングを表示する位置です。本文の上・本文の下・手動・表示しない、の 4 つがあります。ページの編集画面のボックスで選びます。</td></tr>
+                <tr><td>プレビュー</td><td>保存する前に、ランキングの見た目を確かめる機能です。ランキングの編集画面にあります。</td></tr>
+                <tr><td>メインの色</td><td>順位の印の背景・ボタン・飾りの線に使う色です。設定画面で決めます。</td></tr>
+                <tr><td>リッチリザルト</td><td>検索結果に、星の評価や価格などの、通常より詳しい情報を添えた表示のことです。</td></tr>
+            </tbody>
+        </table>
+
+        <nav class="page-nav">
+            <a href="display.html" class="prev">&laquo; 公開ページでの表示</a>
+            <a href="troubleshooting.html" class="next">トラブルシューティング &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

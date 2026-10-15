@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トラブルシューティング - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html" class="active">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>トラブルシューティング</h1>
+        <p class="lead">よくある困りごとと、確認する順番をまとめています。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/troubleshoot-flow.png" alt="ランキングが表示されないときの確認（公開しているか・パスワードをかけていないか・表示位置が「表示しない」ではないか・投稿タイプにチェックが入っているか・名称のある順位が 3 つ以上あるか）" class="lightbox-trigger">
+            <figcaption>ランキングが表示されないときは、上から順に確かめてください</figcaption>
+        </figure>
+
+        <h2>ランキングが表示されない</h2>
+        <p>次の順に確かめます。</p>
+        <table>
+            <thead>
+                <tr><th style="width:5%;">順</th><th style="width:32%;">確かめること</th><th>対処</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>ランキングを公開している</td><td>ランキング一覧で、状態が公開済みか確かめます。下書き・レビュー待ち・非公開・ゴミ箱のランキングは、ページに表示されません。ランキングの編集画面で「公開」してください。</td></tr>
+                <tr><td>2</td><td>ランキングにパスワードを付けていない</td><td>公開中でも、ランキング自体にパスワードを付けていると、表示されません。ランキングの編集画面の「公開」ボックスで、公開範囲を確かめてください。</td></tr>
+                <tr><td>3</td><td>ページの表示位置が「表示しない」ではない</td><td>ランキングを置きたいページの編集画面のボックスで、表示位置を確かめます。「表示しない」のときは、自動の表示も、id のないショートコードも、表示されません。</td></tr>
+                <tr><td>4</td><td>投稿タイプにチェックが入っている</td><td><a href="settings.html">設定画面</a>の「ランキングを選べる投稿タイプ」に、そのページの種類のチェックが入っているか確かめます。チェックが無いと、ボックスが出ず、自動の表示も働きません（ショートコードは、チェックに関係なく使えます）。</td></tr>
+                <tr><td>5</td><td>名称のある順位が 3 つ以上ある</td><td>ランキングの編集画面で、名称が入力された順位があるか確かめます。名称が空の順位は、表示されません。</td></tr>
+                <tr><td>6</td><td>ページの種類と見え方</td><td>投稿の一覧ページ・抜粋・フィードには、自動では表示されません。ページ（個別のページ）を開いて確かめます。パスワードで守られたページは、パスワードを入力すると表示されます。</td></tr>
+                <tr><td>7</td><td>ページのキャッシュ</td><td>キャッシュのプラグインやサービスをお使いのときは、ページのキャッシュを消して、もう一度開きます。</td></tr>
+            </tbody>
+        </table>
+
+        <h2>症状ごとの対処</h2>
+
+        <h3>ランキングを公開できず、下書きになる</h3>
+        <ul>
+            <li><strong>原因</strong>：名称のある順位が 3 つに足りない、または、名称が空で説明か URL だけがある順位があります。</li>
+            <li><strong>対処</strong>：メッセージの案内どおり、3 位までの名称を入力します。名称が空の順位は、名称を入力するか、削除します。<a href="ranking-content.html">ランキングの内容</a>の「公開できる条件」を見てください。</li>
+        </ul>
+
+        <h3>公開中のランキングを直したのに、順位が変わらない</h3>
+        <ul>
+            <li><strong>原因</strong>：公開中のランキングは、順位の入力が条件を満たさないとき、順位の変更だけが保存されません（ほかの項目は保存されます）。</li>
+            <li><strong>対処</strong>：保存後のメッセージ「公開中のランキングは、3位以上の名称が必要です…」を確かめ、名称を入力してもう一度更新します。</li>
+        </ul>
+
+        <h3>ボタンが表示されない・名称がリンクにならない</h3>
+        <ul>
+            <li><strong>原因</strong>：その順位の URL が空、または使えない形です（<code>javascript:</code> など）。</li>
+            <li><strong>対処</strong>：URL を <code>https://</code> か <code>http://</code> で始まる形、または「/」で始まるサイト内のパスで入力します。</li>
+        </ul>
+
+        <h3>ページの編集画面に、ボックスが出ない</h3>
+        <ul>
+            <li><strong>原因</strong>：そのページの投稿タイプに、設定画面でチェックが入っていません。</li>
+            <li><strong>対処</strong>：<a href="settings.html">設定画面</a>の「ランキングを選べる投稿タイプ」にチェックを入れて、保存します。</li>
+        </ul>
+
+        <h3>ボックスのプルダウンに、ランキングが出てこない</h3>
+        <ul>
+            <li><strong>原因</strong>：ランキングが、ゴミ箱に入っている、または、公開前で、お使いのアカウントでは編集できないランキングです。ランキングを新しくつくったあと、ページの画面を開いたままのときも、出てきません。</li>
+            <li><strong>対処</strong>：ランキングを公開します。ページの編集画面を開き直します。</li>
+        </ul>
+
+        <h3>同じランキングが、2 回表示されない</h3>
+        <ul>
+            <li><strong>原因</strong>：自動の表示と、ショートコードの両方で同じランキングを置いたときは、ショートコードの位置だけに表示する仕組みです。</li>
+            <li><strong>対処</strong>：そのままで問題ありません。自動の表示の位置に出したいときは、ショートコードを外します。</li>
+        </ul>
+
+        <h3>構造化データが出力されない</h3>
+        <ul>
+            <li><strong>原因</strong>：次のいずれかです。
+                <ul>
+                    <li>設定画面の「構造化データの出力」がオフになっている。</li>
+                    <li>そのランキングの「出力」のチェックが外れている。</li>
+                    <li>そのページに、ランキングが表示されていない（構造化データは、表示したページにだけ出力されます）。</li>
+                </ul>
+            </li>
+            <li><strong>対処</strong>：<a href="ranking-schema.html">構造化データ</a>のページの「出力のオン・オフ」を見て、設定を確かめます。</li>
+        </ul>
+
+        <h3>Search Console に、商品に関する注意が表示される</h3>
+        <ul>
+            <li><strong>原因</strong>：「おすすめする対象の種類」で「商品（Product）」を選んでいます。このプラグインは価格や評価を出力しないため、Google の商品のリッチリザルトの対象にはなりません。</li>
+            <li><strong>対処</strong>：商品か決めかねるときは、「指定しない（Thing）」を選びます。</li>
+        </ul>
+
+        <h3>ランキングの見た目が、テーマによって違う</h3>
+        <ul>
+            <li><strong>原因</strong>：文字の大きさ・フォント・見出しの飾りは、お使いのテーマのものが使われます。</li>
+            <li><strong>対処</strong>：ランキングの編集画面の「プレビュー」や、設定画面の「見本」でも、同じ違いが出ます。色や型で、サイトに合う形を選んでください。</li>
+        </ul>
+
+        <h3>色を明るくしたら、文字が読めなくなるのでは</h3>
+        <ul>
+            <li>メインの色の上の文字（順位の数字・ボタンの文字）は、読みやすいほうの色（白か黒）が自動で選ばれるので、明るい色にしても読めます。ページの地の上の文字は、テーマの文字の色のままです。</li>
+        </ul>
+
+        <h3>ランキングを更新したのに、ページが変わらない</h3>
+        <ul>
+            <li><strong>原因</strong>：ページのキャッシュが残っています。</li>
+            <li><strong>対処</strong>：キャッシュのプラグインやサービスで、そのページのキャッシュを消します。</li>
+        </ul>
+
+        <h3>一覧の「使っているページ」が「—」になっている</h3>
+        <ul>
+            <li>どのページも、そのランキングを選んでおらず、本文にそのランキングの id を書いたショートコードもありません。ゴミ箱に入ったページは、数えません。</li>
+        </ul>
+
+        <h3>一覧の「順位」が「—」になっている</h3>
+        <ul>
+            <li>そのランキングの中身を見る権限がないときの表示です（ほかの人の下書きなど）。</li>
+        </ul>
+
+        <h3>「設定」のタブ・リンクが見えない</h3>
+        <ul>
+            <li>設定画面は、管理者だけが開けます。管理者のアカウントでログインしてください。</li>
+        </ul>
+
+        <h3>複製したランキングが、ページに表示されない</h3>
+        <ul>
+            <li><strong>原因</strong>：複製は<strong>下書き</strong>でつくられ、もとのランキングを選んでいたページの選択は、コピーされません。</li>
+            <li><strong>対処</strong>：複製の内容を確かめて「公開」し、使いたいページの編集画面で、複製したランキングを選びます。</li>
+        </ul>
+
+        <h3>プレビューが表示されない</h3>
+        <ul>
+            <li><strong>原因</strong>：名称が 1 つも入力されていない、または、プレビューの更新に失敗しています。</li>
+            <li><strong>対処</strong>：名称を入力します。「プレビューを作れませんでした。」と出るときは、通信の状態を確かめ、画面を開き直します。</li>
+        </ul>
+
+        <h2>それでも解決しないとき</h2>
+        <ul>
+            <li>ほかのプラグインやテーマの影響を確かめるため、ほかのプラグインをいったん停止して、表示を確かめます。</li>
+            <li>WordPress とテーマ・プラグインを最新にして、もう一度確かめます。</li>
+            <li>それでも直らないときは、<a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub のリポジトリ</a>の Issues に、お使いの WordPress とテーマの名前と、起きていることを書いて、お知らせください。</li>
+        </ul>
+
+        <nav class="page-nav">
+            <a href="glossary.html" class="prev">&laquo; 用語集</a>
+            <span></span>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

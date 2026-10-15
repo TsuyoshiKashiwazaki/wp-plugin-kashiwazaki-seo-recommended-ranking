@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インストール・初期設定 - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html" class="active">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>インストール・初期設定</h1>
+        <p class="lead">プラグインのインストールから、最初のランキングを表示するまでを、ステップごとに説明します。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/setup-steps.png" alt="はじめるまでの流れ（インストール・有効化・左メニューで確認・設定を確かめる・ランキングを作る・ページで選ぶ）" class="lightbox-trigger">
+            <figcaption>インストールから、ページにランキングを表示するまでの 6 つのステップ</figcaption>
+        </figure>
+
+        <h2>インストール</h2>
+        <div class="step"><div class="step-number">1</div><div class="step-content"><p>管理画面の左メニューから<strong>「プラグイン」→「新規追加」</strong>を開きます。</p></div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-content"><p>上の<strong>「プラグインのアップロード」</strong>をクリックし、プラグインの ZIP ファイルを選んで<strong>「今すぐインストール」</strong>をクリックします。</p></div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-content"><p>インストールが終わったら<strong>「プラグインを有効化」</strong>をクリックします。</p></div></div>
+
+        <figure class="screenshot">
+            <img src="images/screenshots/01-plugin-list-links.png" alt="プラグイン一覧の Kashiwazaki SEO Recommended Ranking の行（設定・ランキング一覧・無効化のリンク）" class="lightbox-trigger">
+            <figcaption>プラグイン一覧の行。「設定」と「ランキング一覧」のリンクから、それぞれの画面をすぐに開けます（「設定」は管理者だけに表示されます）</figcaption>
+        </figure>
+
+        <h2>左メニューで確認する</h2>
+        <p>有効化すると、管理画面の左メニューに<strong>「Kashiwazaki SEO Recommended Ranking」</strong>が追加されます（メダルのようなアイコンです）。クリックすると、<a href="ranking-list.html">ランキング一覧</a>が開きます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/02-menu-location.png" alt="左メニューの Kashiwazaki SEO Recommended Ranking（赤い枠）" class="lightbox-trigger">
+            <figcaption>左メニューの位置（赤い枠）</figcaption>
+        </figure>
+        <div class="callout callout-tip">
+            <div class="callout-title">メニューは 1 つだけです</div>
+            <p>左メニューに出る項目は、このプラグインの 1 つだけです。「ランキング一覧」と「設定」は、一覧や設定の画面の上にあるタブで行き来します。ほかのプラグインがこのメニューの下に項目を足したときだけ、「ランキング一覧」が先頭の項目として左メニューの下に開きます。</p>
+        </div>
+
+        <h2>最初に決めておくこと</h2>
+        <p>初期設定のままでも、すぐに使えます。次の項目だけ、先に確かめておくと安心です。<a href="settings.html">設定画面</a>で変えられます。</p>
+        <table>
+            <thead>
+                <tr><th style="width:30%;">項目</th><th style="width:30%;">初期値</th><th>確かめること</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ランキングを選べる投稿タイプ</td><td>公開されているすべての投稿タイプ</td><td>ランキングを置きたいページの種類（投稿・固定ページ・カスタム投稿）にチェックが入っているか</td></tr>
+                <tr><td>デザインの型</td><td>スタンダード</td><td>サイトの雰囲気に合う型か（設定画面の見本で見比べられます）</td></tr>
+                <tr><td>ボタンの文言（既定）</td><td>詳しく見る</td><td>サイトの言葉に合っているか</td></tr>
+                <tr><td>メインの色</td><td>青（順位の印の背景・ボタンの色）</td><td>サイトの色に合っているか</td></tr>
+                <tr><td>構造化データの出力</td><td>オン</td><td>ランキングを表示したページに、構造化データを出すか</td></tr>
+            </tbody>
+        </table>
+
+        <h2>最初のランキングを表示する</h2>
+        <div class="step"><div class="step-number">1</div><div class="step-content"><p>左メニューの<strong>「Kashiwazaki SEO Recommended Ranking」</strong>を開き、<strong>「ランキングを新規作成」</strong>をクリックします。</p></div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-content"><p>見出しと、1 位から 3 位までの名称（説明と URL は任意）を入力して<strong>「公開」</strong>します。くわしくは<a href="ranking-content.html">ランキングの内容</a>を見てください。</p></div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-content"><p>ランキングを置きたい投稿・固定ページの編集画面を開き、<strong>「Kashiwazaki SEO Recommended Ranking」</strong>のボックスで、表示するランキングと位置（本文の上・本文の下など）を選んで保存します。くわしくは<a href="post-box.html">投稿の編集画面のボックス</a>を見てください。</p></div></div>
+        <div class="step"><div class="step-number">4</div><div class="step-content"><p>ページを開いて、ランキングが表示されていることを確かめます。</p></div></div>
+
+        <div class="callout callout-note">
+            <div class="callout-title">ショートコードで置くこともできます</div>
+            <p>本文の好きな位置に置きたいときは、ページのボックスで表示位置を「手動」にして、本文にショートコードを書きます。ランキングを指定して、どのページにも置くこともできます。<a href="ranking-preview.html">プレビューとショートコード</a>を見てください。</p>
+        </div>
+
+        <h2>削除（アンインストール）のとき</h2>
+        <p>プラグインを停止しても、データは消えません。プラグインを削除したときにランキングを残すか消すかは、<a href="settings.html">設定画面</a>の「プラグインの削除」で決めます（初期値は、残します）。</p>
+
+        <nav class="page-nav">
+            <a href="index.html" class="prev">&laquo; 概要</a>
+            <a href="ranking-list.html" class="next">ランキング一覧 &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

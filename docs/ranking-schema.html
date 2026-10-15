@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>構造化データ - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html" class="active">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>構造化データ</h1>
+        <p class="lead">ランキングを検索エンジンなどに伝えるための構造化データ（JSON-LD）を、ランキングごとに設定する方法です。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/schema-structure.png" alt="構造化データの中身（ItemList の中に ListItem、その中に Recommendation。対象の種類は Thing・Product・Service。Guide でまとめることもできる）" class="lightbox-trigger">
+            <figcaption>構造化データの中身</figcaption>
+        </figure>
+
+        <p>構造化データ（JSON-LD）は、ページの内容を、検索エンジンなどのプログラムが読み取りやすい形で書いたデータです。このプラグインは、ページに表示したランキングと<strong>同じ内容</strong>を、構造化データとして出力できます。ランキングの編集画面のボックス<strong>「構造化データ」</strong>で、ランキングごとに決めます。</p>
+        <div class="callout callout-note">
+            <div class="callout-title">効果について</div>
+            <p>構造化データは、検索エンジンがランキングの構造を読み取る助けになる場合があります。ただし、検索結果での表示や順位への影響は、検索エンジンの判断によります。</p>
+        </div>
+
+        <figure class="screenshot">
+            <img src="images/screenshots/12-box-schema.png" alt="ボックス「構造化データ」（出力・おすすめする対象の種類・まとめの形）" class="lightbox-trigger">
+            <figcaption>ボックス「構造化データ」</figcaption>
+        </figure>
+
+        <h2>項目の一覧</h2>
+        <table>
+            <thead>
+                <tr><th style="width:26%;">項目</th><th>説明</th><th style="width:20%;">既定値</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>出力</td><td>「このランキングの構造化データ（JSON-LD）を出力する」のチェックです。外すと、このランキングの構造化データは出力されません。</td><td>オン</td></tr>
+                <tr><td>おすすめする対象の種類</td><td>ランキングに並べたものが、何の種類かを選びます。</td><td>指定しない（Thing）</td></tr>
+                <tr><td>まとめの形</td><td>ランキング全体を、どの形でまとめて出力するかを選びます。</td><td>ItemList だけ</td></tr>
+            </tbody>
+        </table>
+
+        <h2>出力される内容</h2>
+        <p>名称のある順位だけが、出力されます。ランキングは、次の入れ子の形で出力されます。</p>
+        <table>
+            <thead>
+                <tr><th style="width:28%;">名前</th><th>意味・入る内容</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ItemList（ランキング全体）</td><td>見出し（空欄のときは管理用の名前）・概要説明・順位の数・「1 位から順」という並び順。</td></tr>
+                <tr><td>ListItem（各順位）</td><td>順位の番号。</td></tr>
+                <tr><td>Recommendation（おすすめ）</td><td>名称・順位・簡単な説明・おすすめしている人（author）。</td></tr>
+                <tr><td>おすすめする対象</td><td>名称と、URL を入力していれば URL。種類は「おすすめする対象の種類」で選んだものです。</td></tr>
+            </tbody>
+        </table>
+        <ul>
+            <li>出力される文字は、ページに表示される文字と同じです。</li>
+            <li>構造化データは、ランキングを表示したページの中に、<code>script</code> として出力されます（ページを見ても画面には表示されません）。</li>
+            <li>ランキングを表示していないページには、出力されません。</li>
+            <li>同じページに同じランキングを 2 回置いても、出力は 1 回です。</li>
+            <li>価格や評価は、出力しません。</li>
+        </ul>
+        <p>入力中の内容で出力される構造化データは、出力がオンのとき、<a href="ranking-preview.html">プレビュー</a>の「構造化データ（JSON-LD）を見る」で確かめられます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/17-preview-json.png" alt="プレビューの「構造化データ（JSON-LD）を見る」を開いた状態" class="lightbox-trigger">
+            <figcaption>プレビューで、出力される構造化データを確かめる（URL の部分は例です）</figcaption>
+        </figure>
+
+        <h2>出力のオン・オフ</h2>
+        <p>構造化データが出力されるのは、次の<strong>両方</strong>がオンのときです。</p>
+        <ul>
+            <li><a href="settings.html">設定画面</a>の「構造化データの出力」（すべてのランキングに働きます）</li>
+            <li>このランキングの「出力」のチェック</li>
+        </ul>
+        <p>設定画面で出力を止めているときは、このボックスの上に、「設定画面で構造化データの出力が止まっているため、いまは出力されません。」という案内が出ます。管理者には、設定画面を開くリンク「設定を開く」も出ます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/38-box-schema-off.png" alt="設定画面で出力が止まっているときの案内「設定画面で構造化データの出力が止まっているため、いまは出力されません。」" class="lightbox-trigger">
+            <figcaption>設定画面で出力を止めているとき</figcaption>
+        </figure>
+
+        <h2>おすすめする対象の種類</h2>
+        <table>
+            <thead>
+                <tr><th style="width:36%;">選択肢</th><th>使いどころ</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>指定しない（Thing）— 迷ったらこれ</td><td>どれにも当てはまらないとき、決めかねるときに選びます。</td></tr>
+                <tr><td>商品（Product）</td><td>並べたものが、商品のときに選びます。</td></tr>
+                <tr><td>サービス（Service）</td><td>並べたものが、サービスのときに選びます。</td></tr>
+            </tbody>
+        </table>
+        <div class="callout callout-warning">
+            <div class="callout-title">「商品」を選ぶときの注意</div>
+            <p>Google の商品のリッチリザルトは、1 つの商品を扱うページで、価格・評価などが必要です。このプラグインは価格や評価を出力しないため、「商品」を選んでもリッチリザルトの対象にはならず、Search Console に注意が表示されることがあります。商品か決めかねるときは、「指定しない」を選んでください。</p>
+        </div>
+
+        <h2>まとめの形</h2>
+        <table>
+            <thead>
+                <tr><th style="width:36%;">選択肢</th><th>使いどころと結果</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ItemList だけ</td><td>記事の一部として、ランキングを載せるときに選びます。ランキング全体（ItemList）だけを出力します。</td></tr>
+                <tr><td>Guide でまとめる</td><td>「おすすめ○選」のように、ランキングそのものが記事の主題のときに選びます。ランキング全体のほかに、それをまとめる Guide（ガイド）も出力します。Guide には、見出し・概要説明・おすすめしている人（author）が入ります。</td></tr>
+            </tbody>
+        </table>
+
+        <h2>おすすめしている人（author）</h2>
+        <p>誰がおすすめしているかを、構造化データに入れるかどうかは、<a href="settings.html">設定画面</a>の「おすすめしている人（author）」で決めます（すべてのランキングに働きます）。</p>
+        <table>
+            <thead>
+                <tr><th style="width:44%;">選択肢</th><th>結果</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>表示しているページの投稿者（人）</td><td>ページの投稿者の表示名（と、投稿者のページの URL）を入れます。投稿・固定ページ以外（一覧ページのウィジェットなど）では、サイト名を使います。</td></tr>
+                <tr><td>サイト名（組織）</td><td>サイトの名前（と、サイトの URL）を入れます。</td></tr>
+                <tr><td>出力しない</td><td>おすすめしている人は、入れません。</td></tr>
+            </tbody>
+        </table>
+
+        <nav class="page-nav">
+            <a href="ranking-design.html" class="prev">&laquo; デザイン・ボタン・リンク</a>
+            <a href="ranking-preview.html" class="next">プレビューとショートコード &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

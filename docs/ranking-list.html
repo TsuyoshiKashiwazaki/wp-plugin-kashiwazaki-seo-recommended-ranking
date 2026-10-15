@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランキング一覧 - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html" class="active">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>ランキング一覧</h1>
+        <p class="lead">つくったランキングを一覧で見て、開く・複製する・ショートコードをコピーするための画面です。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/list-anatomy.png" alt="ランキング一覧の見方（タブ・順位の数と見出し・ショートコード・使っているページの数）" class="lightbox-trigger">
+            <figcaption>ランキング一覧の見方</figcaption>
+        </figure>
+
+        <h2>開き方</h2>
+        <p>管理画面の左メニューの<strong>「Kashiwazaki SEO Recommended Ranking」</strong>をクリックします。プラグイン一覧の「ランキング一覧」のリンクからも開けます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/03-list.png" alt="ランキング一覧（タブ・絞り込み・列・行の操作）" class="lightbox-trigger">
+            <figcaption>ランキング一覧（3 件のランキングがある状態）</figcaption>
+        </figure>
+
+        <h2>画面の構成</h2>
+        <table>
+            <thead>
+                <tr><th style="width:26%;">場所</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>見出しの横の「ランキングを新規作成」</td><td>新しいランキングの作成画面を開きます。</td></tr>
+                <tr><td>タブ「ランキング一覧」「設定」</td><td>見出しの下にあります。一覧と設定を 1 クリックで行き来します。「設定」のタブは、管理者だけに表示されます。</td></tr>
+                <tr><td>絞り込みのリンク</td><td>「すべて」「公開済み」「下書き」など、状態ごとに絞り込みます（WordPress の標準の機能です。ゴミ箱に入れたランキングがあるときは「ゴミ箱」も出ます）。</td></tr>
+                <tr><td>検索「ランキングを検索」</td><td>管理用の名前などから探します。</td></tr>
+                <tr><td>一括操作・日付の絞り込み</td><td>複数のランキングをまとめてゴミ箱に移動する、日付で絞り込むなど（WordPress の標準の機能です）。</td></tr>
+            </tbody>
+        </table>
+
+        <h2>列の説明</h2>
+        <table>
+            <thead>
+                <tr><th style="width:26%;">列</th><th>表示される内容</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>タイトル</td><td>ランキングの管理用の名前です。公開以外の状態（下書きなど）のときは、名前のあとに状態が付きます。</td></tr>
+                <tr><td>順位</td><td>「5位まで」のように、名称が入力されている順位の数が出ます。見出しを入力しているときは、その下に見出しも出ます。ランキングの中身を見る権限がない場合（ほかの人の下書きなど）は「—」が出ます。</td></tr>
+                <tr><td>ショートコード</td><td>そのランキングを本文に置くためのショートコードです。欄をクリックすると全体が選択されるので、そのままコピーできます（書き換えられない欄です）。</td></tr>
+                <tr><td>使っているページ</td><td>そのランキングを選んでいる、またはショートコードで置いているページの数が「2件」のように出ます。表示位置を「表示しない」にしたページも、ランキングを選んでいれば数えます（ゴミ箱に入ったページは数えません）。同じページは 1 件です。クリックすると、そのランキングの編集画面の「使っているページ」を開きます。使われていないときは「—」です。</td></tr>
+                <tr><td>作成者・日付</td><td>WordPress の標準の列です（ほかのプラグインが列を足すこともあります）。</td></tr>
+            </tbody>
+        </table>
+
+        <h2>行の操作</h2>
+        <p>タイトルにマウスを乗せると、タイトルの下に操作が出ます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/04-list-row-actions.png" alt="行の操作（編集・クイック編集・ゴミ箱へ移動・複製）" class="lightbox-trigger">
+            <figcaption>行の操作（タイトルにマウスを乗せたとき）</figcaption>
+        </figure>
+        <table>
+            <thead>
+                <tr><th style="width:26%;">操作</th><th>動き</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>編集</td><td>ランキングの編集画面を開きます。</td></tr>
+                <tr><td>クイック編集</td><td>一覧の中で、管理用の名前や公開の状態などを変えます（WordPress の標準の機能です）。</td></tr>
+                <tr><td>ゴミ箱へ移動</td><td>ランキングをゴミ箱に入れます。ゴミ箱に入ったランキングは、ページには表示されなくなります。ゴミ箱から戻すと、また表示されます。</td></tr>
+                <tr><td>複製</td><td>そのランキングのコピーを、下書きでつくります。</td></tr>
+            </tbody>
+        </table>
+
+        <h3>複製のしかた</h3>
+        <div class="step"><div class="step-number">1</div><div class="step-content"><p>複製したいランキングのタイトルにマウスを乗せ、<strong>「複製」</strong>をクリックします。</p></div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-content"><p>コピーの編集画面が開きます。管理用の名前は「（もとの名前） のコピー」になり、状態は<strong>下書き</strong>です。</p></div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-content"><p>内容を確かめて、変えたいところを直し、<strong>「公開」</strong>します。</p></div></div>
+        <figure class="screenshot">
+            <img src="images/screenshots/23-notice-duplicated.png" alt="複製したあとのメッセージ「ランキングを複製しました。複製は下書きです。内容を確かめてから公開してください。」" class="lightbox-trigger">
+            <figcaption>複製したあとに出るメッセージ</figcaption>
+        </figure>
+        <ul>
+            <li>コピーされるのは、ランキングの内容（見出し・見出しの種類・概要説明・順位）と、デザイン・ボタン・リンク・構造化データの設定です。</li>
+            <li>もとのランキングを選んでいたページの選択は、コピーされません。コピーを使うページには、あらためて選んでください。</li>
+            <li>複製できるのは、そのランキングを編集でき、新しくランキングをつくる権限のある人です。ゴミ箱に入っているランキングは複製できません。</li>
+        </ul>
+
+        <h2>メッセージの一覧</h2>
+        <p>ランキングを保存・操作したあとに、画面の上に出るメッセージです。</p>
+        <h3>保存したとき</h3>
+        <table>
+            <thead>
+                <tr><th style="width:50%;">メッセージ</th><th>いつ出るか</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ランキングを更新しました。</td><td>公開中のランキングを更新したとき。</td></tr>
+                <tr><td>ランキングを公開しました。設置したページに表示されます。</td><td>ランキングを公開したとき。</td></tr>
+                <tr><td>ランキングを保存しました。</td><td>公開・予約・下書き・レビュー待ちのどれにも当てはまらない保存のとき（非公開など）。</td></tr>
+                <tr><td>ランキングの下書きを保存しました。</td><td>下書きとして保存したとき。</td></tr>
+                <tr><td>ランキングの公開を予約しました。</td><td>公開の日時を未来にして保存したとき。</td></tr>
+                <tr><td>ランキングをレビュー待ちにしました。</td><td>レビュー待ちとして保存したとき（公開の権限のない人）。</td></tr>
+                <tr><td>リビジョンから復元しました。</td><td>過去の保存の状態に戻したとき。</td></tr>
+                <tr><td>カスタムフィールドを更新しました。／カスタムフィールドを削除しました。</td><td>WordPress の「カスタムフィールド」の欄を使って、項目を更新・削除したとき（WordPress の標準のメッセージです）。ふだんは出ません。</td></tr>
+            </tbody>
+        </table>
+        <p>公開しようとして条件に足りなかったときのメッセージは、<a href="ranking-content.html">ランキングの内容</a>のページにまとめています。</p>
+        <h3>一覧で、まとめて操作したとき</h3>
+        <table>
+            <thead>
+                <tr><th style="width:50%;">メッセージ</th><th>いつ出るか</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>N件のランキングを更新しました。</td><td>一括編集で更新したとき。</td></tr>
+                <tr><td>N件のランキングは、ほかの人が編集中のため更新しませんでした。</td><td>一括編集のとき、別の人が編集中のランキングがあったとき。</td></tr>
+                <tr><td>N件のランキングをゴミ箱へ移動しました。</td><td>ゴミ箱へ移動したとき。</td></tr>
+                <tr><td>N件のランキングをゴミ箱から復元しました。</td><td>ゴミ箱から戻したとき。</td></tr>
+                <tr><td>N件のランキングを完全に削除しました。</td><td>ゴミ箱から完全に削除したとき。</td></tr>
+            </tbody>
+        </table>
+        <h3>複製のとき</h3>
+        <table>
+            <thead>
+                <tr><th style="width:50%;">メッセージ</th><th>いつ出るか</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ランキングを複製しました。複製は下書きです。内容を確かめてから公開してください。</td><td>複製に成功したとき。</td></tr>
+                <tr><td>複製するランキングが見つかりません。</td><td>複製のもとのランキングが無い、またはゴミ箱に入っているとき。</td></tr>
+                <tr><td>このランキングを複製する権限がありません。</td><td>そのランキングを編集できない人、またはランキングをつくる権限のない人が複製しようとしたとき。</td></tr>
+                <tr><td>複製できませんでした。</td><td>コピーの保存に失敗したとき。</td></tr>
+            </tbody>
+        </table>
+        <h3>空のとき</h3>
+        <ul>
+            <li>ランキングが 1 つも無いときは「ランキングがありません」と出ます。</li>
+            <li>ゴミ箱が空のときは「ゴミ箱にランキングはありません」と出ます。</li>
+        </ul>
+
+        <h2>ランキングを更新・削除したときの動き</h2>
+        <ul>
+            <li>ランキングを更新・ゴミ箱へ移動・ゴミ箱から復元すると、そのランキングを使っているページの表示が、その内容に変わります（ページのキャッシュを使うプラグインがある場合も、そのページのキャッシュを消す合図を出します）。</li>
+            <li>ゴミ箱を通さず完全に削除すると、そのランキングを選んでいたページの選択が外れます。</li>
+        </ul>
+
+        <nav class="page-nav">
+            <a href="setup.html" class="prev">&laquo; インストール・初期設定</a>
+            <a href="ranking-content.html" class="next">ランキングの内容 &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

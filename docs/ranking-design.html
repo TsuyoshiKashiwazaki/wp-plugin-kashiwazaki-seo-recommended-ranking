@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デザイン・ボタン・リンク - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html" class="active">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>デザイン・ボタン・リンク</h1>
+        <p class="lead">ランキングの見た目（5 つの型）・ボタンの文言・リンクの開き方を決める「デザイン・ボタン・リンク」ボックスの使い方です。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/designs-compare.png" alt="5 つのデザインの型（スタンダード・王冠・シンプル・比較表・上位3つを大きく）" class="lightbox-trigger">
+            <figcaption>5 つのデザインの型</figcaption>
+        </figure>
+
+        <p>ランキングの編集画面のボックス<strong>「デザイン・ボタン・リンク」</strong>では、そのランキングの見た目と、ボタン・リンクの動きを決めます。ここで決めた内容は、そのランキングだけに働きます。すべてのランキングの既定の見た目は、<a href="settings.html">設定画面</a>で決めます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/11-box-design.png" alt="ボックス「デザイン・ボタン・リンク」（デザインの型・ボタンの文言・リンクの開き方・外部リンクの rel）" class="lightbox-trigger">
+            <figcaption>ボックス「デザイン・ボタン・リンク」</figcaption>
+        </figure>
+
+        <h2>項目の一覧</h2>
+        <table>
+            <thead>
+                <tr><th style="width:22%;">項目</th><th>説明</th><th style="width:24%;">入力できる範囲・既定値</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>デザインの型</td><td>このランキングの見た目を、5 つの型から選びます。</td><td>既定は「設定画面の型に従う」</td></tr>
+                <tr><td>ボタンの文言</td><td>URL を入力した順位に表示するボタンの文字です。空欄のときは、設定画面の文言を使います。</td><td>40 文字まで。空欄が既定</td></tr>
+                <tr><td>リンクの開き方</td><td>「リンクを新しいタブで開く」にチェックを入れると、名称のリンクとボタンが、新しいタブで開きます。</td><td>既定はオフ</td></tr>
+                <tr><td>外部リンクの rel</td><td>ほかのサイトへのリンクに付ける rel（リンクの性質を伝える印）を選びます。</td><td>既定は「付けない」</td></tr>
+            </tbody>
+        </table>
+
+        <h2>デザインの型</h2>
+        <p>選択肢の先頭は<strong>「設定画面の型に従う（いまは「○○」）」</strong>です。これを選ぶと、設定画面で決めた型で表示され、設定画面の型を変えると、このランキングの見た目も変わります。型を選ぶと、そのランキングだけ、その型で表示されます。</p>
+        <table>
+            <thead>
+                <tr><th style="width:24%;">型</th><th>見た目</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>スタンダード</td><td>順位の丸・名称・説明・ボタンを、1 枚ずつのカードにします。どんな記事にもなじむ基本の形です。</td></tr>
+                <tr><td>王冠</td><td>1 位〜3 位に、王冠と金・銀・銅の帯がつきます。おすすめ記事・比較記事で定番の形です。</td></tr>
+                <tr><td>シンプル</td><td>大きな順位の数字と罫線だけの、雑誌のような落ち着いた形です。</td></tr>
+                <tr><td>比較表</td><td>1 行に 1 つずつの表の形です。順位が多いときに見比べやすい形です。</td></tr>
+                <tr><td>上位3つを大きく</td><td>1 位を大きく、2 位・3 位を並べ、4 位以下は小さな行にします。上位を強くすすめたいときの形です。</td></tr>
+            </tbody>
+        </table>
+        <p>色は、設定画面の「メインの色」と「1位〜3位の色」を使います。ボックスの下の「プレビュー」で、入力中に見た目を確かめられます。</p>
+
+        <h3>ページでの見え方（パソコン）</h3>
+        <p>同じ内容を、5 つの型で表示した例です。見出しや文字の大きさ・フォントは、お使いのテーマによって変わります。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/40-front-standard-pc.png" alt="スタンダードの表示（パソコンの幅）" class="lightbox-trigger">
+            <figcaption>スタンダード</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/40-front-crown-pc.png" alt="王冠の表示（パソコンの幅）" class="lightbox-trigger">
+            <figcaption>王冠（1 位〜3 位に王冠と色の帯）</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/40-front-minimal-pc.png" alt="シンプルの表示（パソコンの幅）" class="lightbox-trigger">
+            <figcaption>シンプル（大きな順位の数字と罫線）</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/40-front-table-pc.png" alt="比較表の表示（パソコンの幅）" class="lightbox-trigger">
+            <figcaption>比較表（1 行に 1 つ）</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/40-front-podium-pc.png" alt="上位3つを大きくの表示（パソコンの幅）" class="lightbox-trigger">
+            <figcaption>上位3つを大きく（1 位を大きく、2 位・3 位を並べる）</figcaption>
+        </figure>
+        <p>どの型でも、URL が空の順位には、リンクもボタンも出ません（例では 5 位）。</p>
+
+        <h3>ページでの見え方（スマホ）</h3>
+        <p>ランキングは、<strong>置いた場所の幅</strong>に合わせて形を切り替えます（画面の幅ではなく、ランキングを置いた枠の幅です）。幅が狭いときは、説明とボタンが縦に並び、スマホでも読みやすい形になります。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/41-front-standard-sp.png" alt="スタンダードの表示（スマホの幅）" class="lightbox-trigger">
+            <figcaption>スタンダード（スマホの幅）</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/41-front-crown-sp.png" alt="王冠の表示（スマホの幅）" class="lightbox-trigger">
+            <figcaption>王冠（スマホの幅）</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/41-front-podium-sp.png" alt="上位3つを大きくの表示（スマホの幅）" class="lightbox-trigger">
+            <figcaption>上位3つを大きく（スマホの幅では、2 位・3 位も縦に並びます）</figcaption>
+        </figure>
+        <div class="callout callout-note">
+            <div class="callout-title">古いブラウザでは</div>
+            <p>「置いた場所の幅に合わせた切り替え」は、新しいブラウザで働きます。古いブラウザでは、幅が広くても、狭い形（縦に並ぶ形）のまま表示されます。内容は同じように読めます。</p>
+        </div>
+
+        <h2>ボタンの文言</h2>
+        <ul>
+            <li>URL を入力した順位にだけ、ボタンが表示されます。名称は、URL があればリンクになります。</li>
+            <li>ランキングごとにボタンの文言を決めると、設定画面の文言より、そちらが優先されます。</li>
+            <li>空欄のままにすると、設定画面の文言（初期値は「詳しく見る」）を使います。入力欄の薄い文字が、いま使われる文言です。</li>
+        </ul>
+
+        <h2>リンクの開き方</h2>
+        <table>
+            <thead>
+                <tr><th style="width:34%;">設定</th><th>結果</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>チェックなし（既定）</td><td>リンクは、いま見ているタブで開きます。</td></tr>
+                <tr><td>「リンクを新しいタブで開く」にチェック</td><td>名称のリンクとボタンが、新しいタブで開きます。新しいタブには、元のページを操作できないようにする安全のための設定（noopener）が自動で付きます。</td></tr>
+            </tbody>
+        </table>
+
+        <h2>外部リンクの rel</h2>
+        <p>rel は、リンク先とどういう関係のリンクかを、検索エンジンに伝える印です。<strong>ほかのサイトへのリンクだけ</strong>に付きます（このサイトの中へのリンクには付きません。「www.」の有無だけが違うアドレスは、同じサイトとして扱います）。</p>
+        <table>
+            <thead>
+                <tr><th style="width:42%;">選択肢</th><th>結果・使いどころ</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>付けない</td><td>rel を付けません。</td></tr>
+                <tr><td>nofollow（リンク先を評価しない）</td><td>リンク先を評価してほしくないときに選びます。</td></tr>
+                <tr><td>sponsored（広告・アフィリエイトのリンク）</td><td>広告やアフィリエイトのリンクのときに選びます。</td></tr>
+                <tr><td>sponsored nofollow（両方）</td><td>両方を付けます。</td></tr>
+            </tbody>
+        </table>
+        <div class="callout callout-warning">
+            <div class="callout-title">広告・アフィリエイトのリンクには sponsored を</div>
+            <p>広告やアフィリエイトのリンクを載せるときは、「sponsored」を選んでください。リンクの性質を、検索エンジンに正しく伝えるためです。リンクの扱いは、検索エンジンの判断によります。</p>
+        </div>
+
+        <h2>ほかの項目との関係</h2>
+        <ul>
+            <li>デザイン・ボタン・リンクの設定は、ランキングを<a href="ranking-list.html">複製</a>したときも、そのままコピーされます。</li>
+            <li>構造化データの出力は、<a href="ranking-schema.html">別のボックス</a>で決めます。</li>
+        </ul>
+
+        <nav class="page-nav">
+            <a href="ranking-content.html" class="prev">&laquo; ランキングの内容</a>
+            <a href="ranking-schema.html" class="next">構造化データ &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プレビューとショートコード - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html" class="active">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>プレビューとショートコード</h1>
+        <p class="lead">入力中の内容を保存の前に確かめる「プレビュー」と、ショートコードのコピー・使っているページを確かめる画面の説明です。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/preview-flow.png" alt="入力から反映まで（入力する・プレビューで確かめる・公開・更新・使っているページに反映）" class="lightbox-trigger">
+            <figcaption>入力から、ページに反映されるまで</figcaption>
+        </figure>
+
+        <p>ランキングの編集画面には、入力中の内容を確かめるボックス<strong>「プレビュー」</strong>と、ショートコードと使っているページを見るボックス<strong>「ショートコードと使っているページ」</strong>があります。</p>
+
+        <h2>ボックス「プレビュー」</h2>
+        <p>入力している内容を、ページに表示されるのとほぼ同じ形で、その場で見られます。<strong>保存する前に</strong>確かめられるので、公開前の見た目の確認に使えます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/13-preview-pc.png" alt="ボックス「プレビュー」（パソコンの幅）" class="lightbox-trigger">
+            <figcaption>プレビュー（パソコンの幅）</figcaption>
+        </figure>
+
+        <h3>使い方</h3>
+        <ul>
+            <li>見出し・概要説明・順位・デザインなどを入力・変更すると、少し待ってから、プレビューが自動で更新されます。更新している間は、ボタンの右に「…」が出ます。</li>
+            <li>選んでいるデザインの型・ボタンの文言・リンクの設定は、入力中の内容がそのまま反映されます。色は、設定画面の「メインの色」と「1位〜3位の色」です。</li>
+            <li>プレビューの中のリンクやボタンは、押しても開きません。</li>
+            <li>文字の大きさやフォントは、お使いのテーマによって変わります。</li>
+        </ul>
+
+        <h3>「PC」と「スマホ」</h3>
+        <p>ボックスの上の 2 つのボタンで、プレビューの枠の幅を切り替えます。スマホで見たときの形を確かめられます。</p>
+        <table>
+            <thead>
+                <tr><th style="width:24%;">ボタン</th><th>結果</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>PC</td><td>広い幅で表示します（既定）。</td></tr>
+                <tr><td>スマホ</td><td>狭い幅で表示します。説明とボタンが縦に並ぶ形などを確かめられます。</td></tr>
+            </tbody>
+        </table>
+        <figure class="screenshot">
+            <img src="images/screenshots/16-preview-sp.png" alt="ボックス「プレビュー」（スマホの幅）" class="lightbox-trigger">
+            <figcaption>プレビュー（スマホの幅）</figcaption>
+        </figure>
+
+        <h3>構造化データ（JSON-LD）を見る</h3>
+        <p>プレビューの下の「構造化データ（JSON-LD）を見る」をクリックすると、いまの入力内容で出力される<a href="ranking-schema.html">構造化データ</a>が表示されます。URL の部分は例です。実際には、ランキングを表示したページの URL になります。構造化データの出力がオフのとき（設定画面かこのランキングの「出力」のチェックがオフのとき）は、ここには何も出ません。</p>
+
+        <h3>プレビューの表示とメッセージ</h3>
+        <table>
+            <thead>
+                <tr><th style="width:44%;">表示</th><th>意味・対処</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>名称を入力すると、ここにプレビューが表示されます。</td><td>名称のある順位が 1 つも無いときの表示です。名称を入力してください。</td></tr>
+                <tr><td>プレビューを作れませんでした。</td><td>プレビューの更新に失敗したときの表示です。通信の状態を確かめ、入力をもう一度変えてみてください。それでも出ないときは、画面を開き直してください。</td></tr>
+                <tr><td>…（ボタンの右）</td><td>プレビューを更新している間の表示です。</td></tr>
+            </tbody>
+        </table>
+
+        <h2>ボックス「ショートコードと使っているページ」</h2>
+        <p>画面の右側にあるボックスです。ランキングを本文に置くためのショートコードと、このランキングをどのページが使っているかが分かります。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/15-usage-box.png" alt="ボックス「ショートコードと使っているページ」（ショートコード・コピーのボタン・使っているページの一覧）" class="lightbox-trigger">
+            <figcaption>ボックス「ショートコードと使っているページ」</figcaption>
+        </figure>
+
+        <h3>ショートコード</h3>
+        <p>このランキングのショートコード（<code style="word-break:break-all;">[kashiwazaki_seo_recommended_ranking id="数字"]</code> の形で、数字はランキングごとに違います）が表示されます。</p>
+        <ol>
+            <li>「コピー」をクリックします。ボタンの文字が、少しの間「コピーしました」に変わります。</li>
+            <li>ページの編集画面で、本文の表示したい位置に貼り付けます。</li>
+        </ol>
+        <ul>
+            <li>欄は書き換えられません。欄をクリックすると、全体が選択されるので、手でコピーすることもできます。</li>
+            <li>ショートコードは、<strong>公開中</strong>のランキングだけを表示します。</li>
+            <li>ショートコードは、設定画面で「ランキングを選べる投稿タイプ」にチェックしていない投稿タイプのページでも使えます。</li>
+            <li>ページごとに選んだランキングを本文の途中に置く、id のないショートコードについては、<a href="post-box.html">投稿の編集画面のボックス</a>のページを見てください。</li>
+        </ul>
+
+        <h3>使っているページ</h3>
+        <p>このランキングを使っているページが、一覧で表示されます。ページ名をクリックすると、そのページの編集画面が開きます。</p>
+        <table>
+            <thead>
+                <tr><th style="width:36%;">表示</th><th>意味</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ページ名（本文の下）／（本文の上）</td><td>そのページの「表示位置」で、このランキングを選んでいます。</td></tr>
+                <tr><td>ページ名（手動（ショートコードの位置））</td><td>そのページで表示位置を「手動」にして選んでいます。</td></tr>
+                <tr><td>ページ名（ショートコード）</td><td>そのページの本文に、このランキングの id を書いたショートコードがあります。</td></tr>
+                <tr><td>（…・下書き）などの状態</td><td>公開以外の状態のページには、その状態が付きます。</td></tr>
+                <tr><td>（表示する権限のないページ）</td><td>ほかの人の下書きなど、お使いのアカウントでは見られないページです。ページ名は表示されません。</td></tr>
+                <tr><td>ほか N 件</td><td>一覧に出るのは 50 件までです。それより多いときの残りの数です。</td></tr>
+                <tr><td>まだどのページでも使われていません。</td><td>このランキングを使っているページがありません。</td></tr>
+            </tbody>
+        </table>
+        <ul>
+            <li>表示位置を「表示しない」にしたページも、ランキングを選んでいれば一覧に出ます。</li>
+            <li>ゴミ箱に入ったページは、一覧に出ません。</li>
+        </ul>
+
+        <h2>公開・更新したときの動き</h2>
+        <p>右側の「公開」ボックスで「公開」や「更新」をクリックすると、そのランキングを使っているすべてのページの表示が、新しい内容に変わります。ページのキャッシュを使うプラグインがある場合も、そのページのキャッシュを消す合図を出します。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/14-publish-box.png" alt="「公開」ボックス（公開済みのランキングの例。ステータス・公開範囲・投稿日・ゴミ箱へ移動・更新）" class="lightbox-trigger">
+            <figcaption>「公開」ボックス（WordPress の標準のボックスです）</figcaption>
+        </figure>
+        <ul>
+            <li><strong>公開</strong>・<strong>更新</strong>：ページに表示されます。ただし、<a href="ranking-content.html">公開できる条件</a>を満たしているときだけです。</li>
+            <li><strong>下書き保存</strong>：ページには表示されません。</li>
+            <li>公開の日時を未来にして保存すると、公開の予約になります。</li>
+            <li><strong>ゴミ箱へ移動</strong>：ページには表示されなくなります。ゴミ箱から戻すと、また表示されます。</li>
+        </ul>
+
+        <nav class="page-nav">
+            <a href="ranking-schema.html" class="prev">&laquo; 構造化データ</a>
+            <a href="post-box.html" class="next">投稿の編集画面のボックス &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

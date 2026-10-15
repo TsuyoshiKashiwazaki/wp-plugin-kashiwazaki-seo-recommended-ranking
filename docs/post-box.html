@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投稿の編集画面のボックス - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html" class="active">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>投稿の編集画面のボックス</h1>
+        <p class="lead">投稿・固定ページ・カスタム投稿の編集画面で、表示するランキングと表示位置を選ぶボックスの使い方です。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/position-options.png" alt="表示位置の 4 つの選択肢（本文の上・本文の下・手動・表示しない）" class="lightbox-trigger">
+            <figcaption>表示位置の 4 つの選択肢</figcaption>
+        </figure>
+
+        <p>ランキングを表示したいページの編集画面には、右側にボックス<strong>「Kashiwazaki SEO Recommended Ranking」</strong>があります。ここで、そのページに<strong>どのランキングを、どこに表示するか</strong>を選びます。</p>
+        <div class="callout callout-note">
+            <div class="callout-title">ボックスが出るページ</div>
+            <p>ボックスは、<a href="settings.html">設定画面</a>の「ランキングを選べる投稿タイプ」にチェックを入れた投稿タイプ（投稿・固定ページ・カスタム投稿）の編集画面に出ます。初期設定では、公開されているすべての投稿タイプにチェックが入っています。</p>
+        </div>
+
+        <h2>使い方</h2>
+        <div class="step"><div class="step-number">1</div><div class="step-content"><p>ランキングを表示したい投稿・固定ページの編集画面を開きます。</p></div></div>
+        <div class="step"><div class="step-number">2</div><div class="step-content"><p>右側のボックス「Kashiwazaki SEO Recommended Ranking」の<strong>「表示するランキング」</strong>で、表示するランキングを選びます。</p></div></div>
+        <div class="step"><div class="step-number">3</div><div class="step-content"><p><strong>「表示位置」</strong>を選びます。</p></div></div>
+        <div class="step"><div class="step-number">4</div><div class="step-content"><p>ページを<strong>「更新」</strong>または<strong>「公開」</strong>します。ページを開いて、ランキングが表示されていることを確かめます。</p></div></div>
+
+        <figure class="screenshot">
+            <img src="images/screenshots/24-post-box-default.png" alt="ボックス「Kashiwazaki SEO Recommended Ranking」の初期の状態（ランキングは「— 表示しない —」、表示位置は選べない）" class="lightbox-trigger">
+            <figcaption>ボックスの初期の状態。ランキングを選ぶまで、表示位置は選べません</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/25-post-box-selected.png" alt="ランキングを選んだ状態（「このランキングを編集（新しいタブ）」のリンクが出る）" class="lightbox-trigger">
+            <figcaption>ランキングを選んだ状態。表示位置を選べるようになります</figcaption>
+        </figure>
+
+        <h2>項目の説明</h2>
+        <h3>表示するランキング</h3>
+        <ul>
+            <li>プルダウンの先頭は<strong>「— 表示しない —」</strong>です。これを選ぶと、そのページには、ランキングを表示しません（保存すると、選択と表示位置が消えます）。</li>
+            <li>ランキングは、名前順に並びます。名前のあとに「#数字」が付いています（ランキングの番号です）。</li>
+            <li>公開中のランキングのほか、自分が編集できる、公開前のランキング（下書きなど）も選べます。公開前のランキングには、名前のあとに「（下書き・表示されません）」のように、状態と注意が付きます。パスワードを付けた公開中のランキングには「（パスワード保護・表示されません）」が付きます。</li>
+            <li>ランキングを選ぶと、その下に、<strong>「このランキングを編集（新しいタブ）」</strong>のリンクが出ます。新しいタブで、ランキングの編集画面が開きます。</li>
+            <li><strong>「ランキングを新規作成（新しいタブ）」</strong>のリンクから、新しいランキングをつくれます（ランキングをつくる権限のある人だけに出ます）。つくったあとは、このページの編集画面を開き直すと、選べるようになります。</li>
+            <li>選んでいたランキングが見つからなくなったときは、「（見つからないランキング #数字・表示されません）」と表示されます。</li>
+        </ul>
+        <div class="callout callout-warning">
+            <div class="callout-title">公開していないランキングを選んだとき</div>
+            <p>公開前（下書きなど）のランキングを選ぶと、ボックスに「このランキングは公開されていないため、ページには表示されません。」と出ます。ランキングを公開すると、ページに表示されます。</p>
+        </div>
+        <figure class="screenshot">
+            <img src="images/screenshots/27-post-box-draft-warning.png" alt="公開されていないランキングを選んだときの注意" class="lightbox-trigger">
+            <figcaption>公開されていないランキングを選んだとき（表示位置が「手動」の例）</figcaption>
+        </figure>
+
+        <h3>表示位置</h3>
+        <p>ランキングを選ぶと、選べるようになります。既定は<strong>「本文の下」</strong>です。</p>
+        <table>
+            <thead>
+                <tr><th style="width:30%;">選択肢</th><th>結果</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>本文の下</td><td>ページの本文の最後に、自動でランキングを表示します（既定）。</td></tr>
+                <tr><td>本文の上</td><td>ページの本文の最初に、自動でランキングを表示します。</td></tr>
+                <tr><td>手動（ショートコードの位置）</td><td>自動では表示しません。本文の好きな位置に書いた、ショートコードの位置に表示します。</td></tr>
+                <tr><td>表示しない</td><td>ランキングは選んだままにして、表示だけを止めます。自動の表示も、id のないショートコードの表示も止まります。id を書いたショートコードは、この選択に関係なく表示されます。</td></tr>
+            </tbody>
+        </table>
+        <ul>
+            <li>複数のページに分けた投稿（ページ送りのある投稿）では、「本文の上」は最初のページだけ、「本文の下」は最後のページだけに表示されます。</li>
+            <li>パスワードで守られたページには、パスワードの入力前は表示されません。</li>
+            <li>投稿の一覧ページや、抜粋・フィードには、自動の表示は出ません。</li>
+        </ul>
+
+        <h3>手動のとき（ショートコードの案内）</h3>
+        <p>表示位置を「手動（ショートコードの位置）」にすると、ボックスに、本文に書くショートコードが出ます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/26-post-box-manual.png" alt="表示位置が「手動」のとき、ショートコードの案内が出る" class="lightbox-trigger">
+            <figcaption>「手動」を選んだとき</figcaption>
+        </figure>
+        <ol>
+            <li>欄をクリックすると、ショートコード <code style="word-break:break-all;">[kashiwazaki_seo_recommended_ranking]</code> の全体が選択されます。コピーしてください。</li>
+            <li>本文の、表示したい位置に貼り付けて、ページを更新します。</li>
+        </ol>
+        <div class="callout callout-tip">
+            <div class="callout-title">ショートコードの 2 つの書き方</div>
+            <ul>
+                <li><code style="word-break:break-all;">[kashiwazaki_seo_recommended_ranking]</code>：このページで選んだランキングを表示します（id は書きません）。</li>
+                <li><code style="word-break:break-all;">[kashiwazaki_seo_recommended_ranking id="123"]</code>：番号を書いたランキングを表示します。ボックスでの選択に関係なく、どのページでも使えます。番号は、ランキングの編集画面のショートコード欄で分かります。</li>
+            </ul>
+        </div>
+
+        <h2>保存したときの動き</h2>
+        <ul>
+            <li>ページを保存すると、選んだランキングと表示位置が、そのページに記録されます。</li>
+            <li>選んだ後、そのランキングをゴミ箱に入れても、ページの選択は残ります（表示はされません）。ゴミ箱から戻すと、また表示されます。ランキングを完全に削除すると、選択は外れます。</li>
+            <li>ランキングの内容を直すときは、「Kashiwazaki SEO Recommended Ranking」のメニューで、ランキングを編集します。更新すると、このページの表示にも反映されます。</li>
+            <li>ほかの人が作った公開前のランキングなど、自分が編集できないランキングは、新しく選べません。</li>
+        </ul>
+        <p>ランキングが表示されないときは、<a href="troubleshooting.html">トラブルシューティング</a>も見てください。</p>
+
+        <nav class="page-nav">
+            <a href="ranking-preview.html" class="prev">&laquo; プレビューとショートコード</a>
+            <a href="settings.html" class="next">設定画面 &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>

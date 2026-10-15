@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>設定画面 - SEO Recommended Ranking マニュアル</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">SEO Recommended Ranking</h2>
+            <span class="version">v1.0.0</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="ranking-list.html">ランキング一覧</a></li>
+            <li><a href="ranking-content.html">ランキングの内容</a></li>
+            <li><a href="ranking-design.html">デザイン・ボタン・リンク</a></li>
+            <li><a href="ranking-schema.html">構造化データ</a></li>
+            <li><a href="ranking-preview.html">プレビューとショートコード</a></li>
+            <li><a href="post-box.html">投稿の編集画面のボックス</a></li>
+            <li><a href="settings.html" class="active">設定画面</a></li>
+            <li><a href="display.html">公開ページでの表示</a></li>
+            <li><a href="glossary.html">用語集</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>設定画面</h1>
+        <p class="lead">表示するページ・デザインの既定・構造化データ・プラグインの削除のときのデータを決める設定画面の、すべての項目を説明します。</p>
+
+        <figure class="infographic">
+            <img src="images/infographics/settings-map.png" alt="設定画面の 5 つの区分（使い方・表示するページ・デザイン・構造化データ・プラグインの削除）" class="lightbox-trigger">
+            <figcaption>設定画面の 5 つの区分</figcaption>
+        </figure>
+
+        <p>設定画面では、すべてのランキングに共通する内容を決めます。ランキングごとに変えられるもの（デザインの型・ボタンの文言など）は、ここの設定が<strong>既定</strong>になります。</p>
+
+        <h2>開き方</h2>
+        <ul>
+            <li>ランキング一覧の見出しの下の、タブ<strong>「設定」</strong>をクリックします。</li>
+            <li>または、プラグイン一覧の、このプラグインの行の<strong>「設定」</strong>リンクをクリックします。</li>
+        </ul>
+        <div class="callout callout-warning">
+            <div class="callout-title">設定画面を開けるのは管理者だけです</div>
+            <p>タブ「設定」とプラグイン一覧の「設定」リンクは、管理者にだけ表示されます。管理者以外は、画面を開けません（アクセスできないことを知らせるメッセージが表示されます）。</p>
+        </div>
+
+        <h2>画面の構成</h2>
+        <p>上から順に、見出しと「ランキングを新規作成」のボタン・タブ（ランキング一覧｜設定）・次の 5 つの区分が並び、いちばん下に<strong>「変更を保存」</strong>のボタンがあります。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/28-settings-top.png" alt="設定画面の上部（見出し・ランキングを新規作成のボタン・タブ・使い方）" class="lightbox-trigger">
+            <figcaption>設定画面の上部（見出し・タブ・使い方）</figcaption>
+        </figure>
+
+        <h2>使い方</h2>
+        <p>このプラグインの使い方を、4 つの手順で案内する欄です。内容を確かめるだけで、入力する項目はありません。</p>
+        <ol>
+            <li>「新規作成」で、見出し・概要説明・各順位の名称・説明・URL を入力して公開します（3 位から 10 位まで）。</li>
+            <li>投稿・固定ページ・カスタム投稿の編集画面にあるボックスで、表示するランキングと表示位置を選びます。</li>
+            <li>手動を選んだときは、本文の好きな位置にショートコードを書きます。</li>
+            <li>ランキングを更新すると、そのランキングを表示しているすべてのページに反映されます。</li>
+        </ol>
+
+        <h2>表示するページ</h2>
+        <figure class="screenshot">
+            <img src="images/screenshots/29-settings-pages.png" alt="「ランキングを選べる投稿タイプ」（投稿と固定ページにチェック）" class="lightbox-trigger">
+            <figcaption>ランキングを選べる投稿タイプ</figcaption>
+        </figure>
+        <table>
+            <thead>
+                <tr><th style="width:28%;">項目</th><th>説明</th><th style="width:24%;">既定値</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ランキングを選べる投稿タイプ</td><td>チェックした投稿タイプの編集画面に、ランキングを選ぶボックスが表示され、本文の上・下への自動の表示が働きます。</td><td>公開されているすべての投稿タイプ</td></tr>
+            </tbody>
+        </table>
+        <ul>
+            <li>一覧には、投稿・固定ページと、お使いのサイトにあるカスタム投稿の種類が出ます（メディアの添付ファイルと、ランキングそのものは出ません）。</li>
+            <li>チェックを外した投稿タイプでは、編集画面にボックスが出ず、自動の表示も働きません。</li>
+            <li><strong>ショートコードは、チェックに関係なく、どのページでも使えます。</strong></li>
+        </ul>
+
+        <h2>デザイン</h2>
+        <figure class="screenshot">
+            <img src="images/screenshots/30-settings-design.png" alt="「デザイン」の区分（デザインの型・ボタンの文言・メインの色・1位〜3位の色）" class="lightbox-trigger">
+            <figcaption>「デザイン」の区分</figcaption>
+        </figure>
+        <table>
+            <thead>
+                <tr><th style="width:22%;">項目</th><th>説明</th><th style="width:24%;">入力できる範囲・既定値</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>デザインの型</td><td>すべてのランキングの既定の見た目です。ランキングの編集画面で、ランキングごとに別の型を選ぶこともできます。</td><td>既定は「スタンダード」</td></tr>
+                <tr><td>ボタンの文言（既定）</td><td>URL を入力した順位に表示するボタンの文言です。ランキングごとに変えることもできます。</td><td>40 文字まで。既定は「詳しく見る」</td></tr>
+                <tr><td>メインの色</td><td>順位の印の背景・ボタン・飾りの線の色です。</td><td>既定は青</td></tr>
+                <tr><td>1位〜3位の色</td><td>「1位を金色、2位を銀色、3位を銅色にする」のチェックです。</td><td>既定はオン</td></tr>
+                <tr><td>見本</td><td>選んだ型と色で、ランキングの見本を表示します（確かめるだけで、入力する項目はありません）。</td><td>―</td></tr>
+            </tbody>
+        </table>
+
+        <h3>デザインの型</h3>
+        <p>5 つの型から選びます。それぞれの見た目は、<a href="ranking-design.html">デザイン・ボタン・リンク</a>のページにあります。型を選ぶと、すぐ下の「見本」が切り替わります。</p>
+        <table>
+            <thead>
+                <tr><th style="width:24%;">型</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>スタンダード</td><td>順位の丸・名称・説明・ボタンを 1 枚ずつのカードに。どんな記事にもなじむ基本の形</td></tr>
+                <tr><td>王冠</td><td>1 位〜3 位に王冠と金・銀・銅の帯。おすすめ記事・比較記事で定番の形</td></tr>
+                <tr><td>シンプル</td><td>大きな順位の数字と罫線だけ。雑誌のような落ち着いた形</td></tr>
+                <tr><td>比較表</td><td>1 行に 1 つずつの表の形。順位が多いときに見比べやすい</td></tr>
+                <tr><td>上位3つを大きく</td><td>1 位を大きく、2 位・3 位を並べ、4 位以下は小さな行に。上位を強くすすめたいとき</td></tr>
+            </tbody>
+        </table>
+
+        <h3>メインの色</h3>
+        <p>「色を選択」をクリックすると、色を選ぶ画面が開きます。色の画面の中から選ぶか、色の数値を入力できます。「デフォルト」をクリックすると、初期の色（青）に戻ります。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/34-settings-color-picker.png" alt="メインの色を選ぶ画面（色の選択・色の数値の入力欄・「デフォルト」のボタン）" class="lightbox-trigger">
+            <figcaption>メインの色を選ぶ画面</figcaption>
+        </figure>
+        <ul>
+            <li>色の上に載る文字（順位の数字・ボタンの文字）は、<strong>読みやすいほうが（白か黒）自動で選ばれます</strong>。明るい色を選んでも、文字が読めなくなることはありません。</li>
+            <li>ページの地の上の文字は、お使いのテーマの文字の色のままです。</li>
+            <li>色の数値は、「#」で始まる 3 桁か 6 桁の形だけが使えます。それ以外の形で保存すると、初期の色（青）になります。</li>
+        </ul>
+        <figure class="screenshot">
+            <img src="images/screenshots/44-front-accent-orange.png" alt="メインの色をオレンジにしたときの表示（順位の印・ボタンがオレンジで、文字は黒）" class="lightbox-trigger">
+            <figcaption>メインの色をオレンジにした例。ボタンの文字は、読みやすい色に自動で変わります</figcaption>
+        </figure>
+
+        <h3>1位〜3位の色</h3>
+        <table>
+            <thead>
+                <tr><th style="width:36%;">設定</th><th>結果</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>オン（既定）</td><td>1 位を金色、2 位を銀色、3 位を銅色で表示します。</td></tr>
+                <tr><td>オフ</td><td>1 位〜3 位も、メインの色で表示します。</td></tr>
+            </tbody>
+        </table>
+        <figure class="screenshot">
+            <img src="images/screenshots/45-front-medal-off.png" alt="「1位〜3位の色」をオフにしたときの王冠の表示（1 位〜3 位の印もメインの色）" class="lightbox-trigger">
+            <figcaption>オフにした例（王冠の型）。1 位〜3 位も、メインの色で表示されます</figcaption>
+        </figure>
+
+        <h3>見本</h3>
+        <p>「デザイン」の区分の下に、見本のランキング（「見本の商品 A」〜「見本の商品 D」）が表示されます。<strong>型・メインの色・1位〜3位の色を変えると、保存しなくても、すぐに見本が切り替わります</strong>。上の 2 つのボタンで、パソコンとスマホの幅も見比べられます。</p>
+        <figure class="screenshot">
+            <img src="images/screenshots/31-settings-sample-pc.png" alt="見本（パソコンの幅・スタンダード）" class="lightbox-trigger">
+            <figcaption>見本（パソコンの幅・スタンダード）</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/32-settings-sample-crown-sp.png" alt="見本（スマホの幅・王冠）" class="lightbox-trigger">
+            <figcaption>見本（スマホの幅・王冠）</figcaption>
+        </figure>
+        <figure class="screenshot">
+            <img src="images/screenshots/33-settings-sample-minimal.png" alt="見本（パソコンの幅・シンプル）" class="lightbox-trigger">
+            <figcaption>見本（パソコンの幅・シンプル）</figcaption>
+        </figure>
+        <p>見本の文字の大きさ・フォントは、お使いのテーマによって変わります。見本で見た目を決めたあと、<strong>「変更を保存」</strong>をクリックして、設定を保存してください。</p>
+
+        <h2>構造化データ</h2>
+        <figure class="screenshot">
+            <img src="images/screenshots/35-settings-schema.png" alt="「構造化データ」の区分（構造化データの出力・おすすめしている人（author））" class="lightbox-trigger">
+            <figcaption>「構造化データ」の区分</figcaption>
+        </figure>
+        <table>
+            <thead>
+                <tr><th style="width:28%;">項目</th><th>説明</th><th style="width:22%;">既定値</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>構造化データの出力</td><td>「ランキングを表示したページに構造化データ（JSON-LD）を出力する」のチェックです。外すと、すべてのランキングで出力を止めます。ランキングごとに出力を止めることもできます。</td><td>オン</td></tr>
+                <tr><td>おすすめしている人（author）</td><td>構造化データに入れる、おすすめしている人を選びます。</td><td>表示しているページの投稿者（人）</td></tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr><th style="width:40%;">おすすめしている人の選択肢</th><th>結果</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>表示しているページの投稿者（人）</td><td>ページの投稿者の名前を入れます。投稿・固定ページ以外（一覧ページのウィジェットなど）では、サイト名を使います。</td></tr>
+                <tr><td>サイト名（組織）</td><td>サイトの名前を入れます。</td></tr>
+                <tr><td>出力しない</td><td>おすすめしている人は、入れません。</td></tr>
+            </tbody>
+        </table>
+        <p>構造化データの中身は、<a href="ranking-schema.html">構造化データ</a>のページで説明しています。</p>
+
+        <h2>プラグインの削除</h2>
+        <figure class="screenshot">
+            <img src="images/screenshots/36-settings-uninstall.png" alt="「プラグインの削除」の区分（削除するときのデータ）" class="lightbox-trigger">
+            <figcaption>「プラグインの削除」の区分</figcaption>
+        </figure>
+        <table>
+            <thead>
+                <tr><th style="width:30%;">「削除するときのデータ」の設定</th><th>プラグインを削除したときの動き</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>チェックなし（既定）</td><td>ランキング・各ページの選択・この設定は<strong>残ります</strong>。プラグインを入れ直すと、元どおりに使えます。</td></tr>
+                <tr><td>「プラグインを削除するときに、すべてのランキング・各ページの選択・この設定も削除する」にチェック</td><td>プラグインを削除すると、すべてのランキング・各ページの選択・この設定を<strong>削除します</strong>。</td></tr>
+            </tbody>
+        </table>
+        <div class="callout callout-warning">
+            <div class="callout-title">チェックを入れると、元に戻せません</div>
+            <p>チェックを入れてプラグインを削除すると、つくったランキングも消え、元に戻せません。ランキングを残したいときは、チェックを入れないでください。プラグインを<strong>停止する</strong>だけなら、チェックに関係なく、データは消えません。</p>
+        </div>
+
+        <h2>設定を保存する</h2>
+        <ol>
+            <li>画面のいちばん下の<strong>「変更を保存」</strong>をクリックします。</li>
+            <li>画面の上に「設定を保存しました。」と表示されます。</li>
+        </ol>
+        <figure class="screenshot">
+            <img src="images/screenshots/37-settings-saved.png" alt="「設定を保存しました。」のメッセージ" class="lightbox-trigger">
+            <figcaption>保存したあとのメッセージ</figcaption>
+        </figure>
+        <ul>
+            <li>保存した設定は、すべてのランキングに反映されます。ランキングごとに型やボタンの文言を決めているものは、そちらが優先されます。</li>
+            <li>ボタンの文言を空にして保存すると、初期の「詳しく見る」になります。</li>
+        </ul>
+
+        <nav class="page-nav">
+            <a href="post-box.html" class="prev">&laquo; 投稿の編集画面のボックス</a>
+            <a href="display.html" class="next">公開ページでの表示 &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Recommended Ranking v1.0.0 | <a href="https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-recommended-ranking" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <div class="lightbox"></div>
+    <script src="js/manual.js"></script>
+</body>
+</html>
